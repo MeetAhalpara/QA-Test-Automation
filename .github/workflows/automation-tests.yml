@@ -11,6 +11,8 @@ jobs:
   test-automation:
     name: Run Selenium & Robot Test Suites
     runs-on: windows-latest
+    env:
+      PYTHONPATH: .
 
     steps:
       - name: Checkout Code
@@ -29,11 +31,11 @@ jobs:
 
       - name: Execute Selenium Pytest Suite (POM)
         run: |
-          pytest automation_selenium/tests/ -v --junitxml=reports/junit_selenium.xml --html=reports/selenium_test_report.html --self-contained-html
+          python -m pytest automation_selenium/tests/ -v --junitxml=reports/junit_selenium.xml --html=reports/selenium_test_report.html --self-contained-html
 
       - name: Execute Robot Framework Test Suite
         run: |
-          robot --outputdir reports/robot_logs automation_robot/tests/saucedemo_suite.robot
+          python -m robot --outputdir reports/robot_logs automation_robot/tests/saucedemo_suite.robot
 
       - name: Upload Test Reports Artifact
         uses: actions/upload-artifact@v4
