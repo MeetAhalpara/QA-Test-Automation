@@ -1,0 +1,52 @@
+pipeline {
+    agent any
+
+    environment {
+        PYTHON_ENV = "python"
+        REPORTS_DIR = "reports"
+    }
+
+    stages {
+        stage('Checkout Source') {
+            steps {
+                echo 'Checking out source code repository...'
+                checkout scm
+            }
+        }
+
+        stage('Environment Setup') {
+            steps {
+                echo 'Installing required dependencies from requirements.txt...'
+                bat 'pip install -r requirements.txt'
+            }
+        }
+
+        stage('Execute Selenium Tests') {
+            steps {
+                echo 'Running Selenium WebDriver tests with Page Object Model (POM)...'
+                bat 'pytest automation_selenium/tests/ -v --junitxml=reports/junit_selenium.xml --html=reports/selenium_test_report.html --self-contained-html'
+            }
+        }
+
+        stage('Execute Robot Framework Tests') {
+            steps {
+                echo 'Running Robot Framework automated suite...'
+                bat 'robot --outputdir reports/robot_logs automation_robot/tests/saucedemo_suite.robot'
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Publishing test reports and archiving artifacts...'
+            junit 'reports/junit_*.xml'
+            archiveArtifacts artifacts: 'reports/**/*', allowEmptyArchive: true
+        }
+        success {
+            echo 'All automated regression test suites executed successfully! Zero defects/regressions detected.'
+        }
+        failure {
+            echo 'Test failure detected. Please review screenshots and execution logs in reports/.'
+        }
+    }
+}

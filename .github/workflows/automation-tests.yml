@@ -1,0 +1,43 @@
+name: SauceDemo QA Automation CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  test-automation:
+    name: Run Selenium & Robot Test Suites
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Execute Selenium Pytest Suite (POM)
+        run: |
+          pytest automation_selenium/tests/ -v --junitxml=reports/junit_selenium.xml --html=reports/selenium_test_report.html --self-contained-html
+
+      - name: Execute Robot Framework Test Suite
+        run: |
+          robot --outputdir reports/robot_logs automation_robot/tests/saucedemo_suite.robot
+
+      - name: Upload Test Reports Artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qa-automation-reports
+          path: reports/

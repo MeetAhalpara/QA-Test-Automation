@@ -1,0 +1,42 @@
+# Environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Project Notes (User ignored)
+NOTES.txt
+
+# Python cache & bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# Pytest cache & test artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Logs & temp files
+*.log
+scratch/
+scratch*.py
+*.msi
+.tmp/
+
+# IDE & Editor configurations
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Large generated failure screenshots
+reports/screenshots/FAILED_*.png

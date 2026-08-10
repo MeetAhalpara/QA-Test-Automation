@@ -1,0 +1,2131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.11.9 on win32)" generated="2026-08-10T15:02:44.056449" rpa="false" schemaversion="5">
+<suite id="s1" name="Saucedemo Suite" source="C:\Users\Meeta\OneDrive - Algonquin College\Subjects\6\Quality Assurance and Testing\Assignment3\automation_robot\tests\saucedemo_suite.robot">
+<test id="s1-t1" name="TC-01: Verify Successful Login With Valid Credentials" line="10">
+<kw name="Open SauceDemo In Browser" owner="common" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:02:44.257856" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>headlesschrome</arg>
+<arg>options=add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-08-10T15:02:44.257291" elapsed="1.684869"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2026-08-10T15:02:45.942160" elapsed="0.003026"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2026-08-10T15:02:45.945186" elapsed="0.000000"/>
+</kw>
+<doc>Opens the SauceDemo application in Chrome headless mode.</doc>
+<status status="PASS" start="2026-08-10T15:02:44.256724" elapsed="1.688462"/>
+</kw>
+<kw name="Login To Application" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:02:45.946186" level="INFO">Executing JavaScript:
+function setVal(id, v) {let el = document.getElementById(id);let last = el.value;el.value = v;if (el._valueTracker) el._valueTracker.setValue(last);el.dispatchEvent(new Event('input', { bubbles: true }));}setVal('user-name', 'standard_user');setVal('password', 'secret_sauce');
+Without any arguments.</msg>
+<arg>function setVal(id, v) {</arg>
+<arg>let el = document.getElementById(id);</arg>
+<arg>let last = el.value;</arg>
+<arg>el.value = v;</arg>
+<arg>if (el._valueTracker) el._valueTracker.setValue(last);</arg>
+<arg>el.dispatchEvent(new Event('input', { bubbles: true }));</arg>
+<arg>}</arg>
+<arg>setVal('user-name', '${username}');</arg>
+<arg>setVal('password', '${password}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:02:45.946186" elapsed="0.016187"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:02:45.962879" level="INFO">Executing JavaScript:
+document.getElementById('login-button').click();
+Without any arguments.</msg>
+<arg>document.getElementById('login-button').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:02:45.962879" elapsed="0.081314"/>
+</kw>
+<arg>${VALID_USER}</arg>
+<arg>${VALID_PASSWORD}</arg>
+<doc>Enters credentials and submits the login form.</doc>
+<status status="PASS" start="2026-08-10T15:02:45.946186" elapsed="0.098007"/>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:02:46.067267" level="INFO">Current location contains 'inventory.html'.</msg>
+<arg>inventory.html</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:02:46.044193" elapsed="0.024084"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:02:46.069260" level="INFO">Verifying element 'class=title' contains exact text 'Products'.</msg>
+<arg>${PAGE_TITLE}</arg>
+<arg>Products</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:02:46.068277" elapsed="0.035676"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:02:46.114506" level="INFO">Current page contains element 'class=inventory_item'.</msg>
+<arg>${INVENTORY_ITEM}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-10T15:02:46.104953" elapsed="0.009553"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-08-10T15:02:46.115502" elapsed="2.134472"/>
+</kw>
+<doc>Closes the active browser session.</doc>
+<status status="PASS" start="2026-08-10T15:02:46.114506" elapsed="2.135468"/>
+</kw>
+<doc>FR-01: System authenticates standard_user and redirects to /inventory.html.</doc>
+<tag>auth</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2026-08-10T15:02:44.256216" elapsed="3.994660"/>
+</test>
+<test id="s1-t2" name="TC-02: Verify Login Error For Invalid Credentials" line="18">
+<kw name="Open SauceDemo In Browser" owner="common" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:02:48.252923" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>headlesschrome</arg>
+<arg>options=add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-08-10T15:02:48.252286" elapsed="1.630994"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2026-08-10T15:02:49.883280" elapsed="0.003003"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2026-08-10T15:02:49.887282" elapsed="0.000000"/>
+</kw>
+<doc>Opens the SauceDemo application in Chrome headless mode.</doc>
+<status status="PASS" start="2026-08-10T15:02:48.251735" elapsed="1.636546"/>
+</kw>
+<kw name="Login To Application" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:02:49.889287" level="INFO">Executing JavaScript:
+function setVal(id, v) {let el = document.getElementById(id);let last = el.value;el.value = v;if (el._valueTracker) el._valueTracker.setValue(last);el.dispatchEvent(new Event('input', { bubbles: true }));}setVal('user-name', 'wrong_user');setVal('password', 'wrong_password');
+Without any arguments.</msg>
+<arg>function setVal(id, v) {</arg>
+<arg>let el = document.getElementById(id);</arg>
+<arg>let last = el.value;</arg>
+<arg>el.value = v;</arg>
+<arg>if (el._valueTracker) el._valueTracker.setValue(last);</arg>
+<arg>el.dispatchEvent(new Event('input', { bubbles: true }));</arg>
+<arg>}</arg>
+<arg>setVal('user-name', '${username}');</arg>
+<arg>setVal('password', '${password}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:02:49.889287" elapsed="0.012070"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:02:49.901357" level="INFO">Executing JavaScript:
+document.getElementById('login-button').click();
+Without any arguments.</msg>
+<arg>document.getElementById('login-button').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:02:49.901357" elapsed="0.025676"/>
+</kw>
+<arg>${INVALID_USER}</arg>
+<arg>${INVALID_PASSWORD}</arg>
+<doc>Enters credentials and submits the login form.</doc>
+<status status="PASS" start="2026-08-10T15:02:49.888281" elapsed="0.039753"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:02:49.960641" level="INFO">Element 'css=h3[data-test='error']' is displayed.</msg>
+<arg>${LOGIN_ERROR_BANNER}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-08-10T15:02:49.928034" elapsed="0.032607"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:02:49.980305" level="INFO">Element 'css=h3[data-test='error']' contains text 'Username and password do not match'.</msg>
+<arg>${LOGIN_ERROR_BANNER}</arg>
+<arg>Username and password do not match</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:02:49.960641" elapsed="0.019664"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-08-10T15:02:49.982316" elapsed="2.125814"/>
+</kw>
+<doc>Closes the active browser session.</doc>
+<status status="PASS" start="2026-08-10T15:02:49.981309" elapsed="2.126821"/>
+</kw>
+<doc>FR-02: Clear error message displayed when submitting invalid credentials.</doc>
+<tag>auth</tag>
+<tag>negative</tag>
+<status status="PASS" start="2026-08-10T15:02:48.251227" elapsed="3.856903"/>
+</test>
+<test id="s1-t3" name="TC-03: Verify Product Inventory Display" line="25">
+<kw name="Open SauceDemo In Browser" owner="common" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:02:52.110022" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>headlesschrome</arg>
+<arg>options=add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-08-10T15:02:52.109442" elapsed="1.657588"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2026-08-10T15:02:53.768031" elapsed="0.002001"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2026-08-10T15:02:53.771031" elapsed="0.000000"/>
+</kw>
+<doc>Opens the SauceDemo application in Chrome headless mode.</doc>
+<status status="PASS" start="2026-08-10T15:02:52.109442" elapsed="1.661589"/>
+</kw>
+<kw name="Login As Standard User" owner="common">
+<kw name="Login To Application" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:02:53.773569" level="INFO">Executing JavaScript:
+function setVal(id, v) {let el = document.getElementById(id);let last = el.value;el.value = v;if (el._valueTracker) el._valueTracker.setValue(last);el.dispatchEvent(new Event('input', { bubbles: true }));}setVal('user-name', 'standard_user');setVal('password', 'secret_sauce');
+Without any arguments.</msg>
+<arg>function setVal(id, v) {</arg>
+<arg>let el = document.getElementById(id);</arg>
+<arg>let last = el.value;</arg>
+<arg>el.value = v;</arg>
+<arg>if (el._valueTracker) el._valueTracker.setValue(last);</arg>
+<arg>el.dispatchEvent(new Event('input', { bubbles: true }));</arg>
+<arg>}</arg>
+<arg>setVal('user-name', '${username}');</arg>
+<arg>setVal('password', '${password}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:02:53.772548" elapsed="0.015549"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:02:53.788097" level="INFO">Executing JavaScript:
+document.getElementById('login-button').click();
+Without any arguments.</msg>
+<arg>document.getElementById('login-button').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:02:53.788097" elapsed="0.084186"/>
+</kw>
+<arg>${VALID_USER}</arg>
+<arg>${VALID_PASSWORD}</arg>
+<doc>Enters credentials and submits the login form.</doc>
+<status status="PASS" start="2026-08-10T15:02:53.772548" elapsed="0.099735"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>inventory.html</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:02:53.873296" elapsed="0.023058"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${PAGE_TITLE}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-08-10T15:02:53.896354" elapsed="0.019175"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:02:53.916529" level="INFO">Verifying element 'class=title' contains exact text 'Products'.</msg>
+<arg>${PAGE_TITLE}</arg>
+<arg>Products</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:02:53.916529" elapsed="0.024058"/>
+</kw>
+<doc>Performs successful login using standard credentials.</doc>
+<status status="PASS" start="2026-08-10T15:02:53.771031" elapsed="0.169556"/>
+</kw>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:02:53.953638" level="INFO">${count} = 6</msg>
+<var>${count}</var>
+<arg>${INVENTORY_ITEM}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2026-08-10T15:02:53.941587" elapsed="0.012051"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-08-10T15:02:53.954656" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${count}</arg>
+<arg>6</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-08-10T15:02:53.953638" elapsed="0.001018"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:02:53.974697" level="INFO">Current page contains text 'Sauce Labs Backpack'.</msg>
+<arg>Sauce Labs Backpack</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-08-10T15:02:53.955664" elapsed="0.019033"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:02:53.992768" level="INFO">Current page contains text 'Sauce Labs Bike Light'.</msg>
+<arg>Sauce Labs Bike Light</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-08-10T15:02:53.975698" elapsed="0.017070"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-08-10T15:02:53.993774" elapsed="2.186224"/>
+</kw>
+<doc>Closes the active browser session.</doc>
+<status status="PASS" start="2026-08-10T15:02:53.992768" elapsed="2.187230"/>
+</kw>
+<doc>FR-03: Inventory grid displays all 6 catalog items with details.</doc>
+<tag>inventory</tag>
+<status status="PASS" start="2026-08-10T15:02:52.108936" elapsed="4.071062"/>
+</test>
+<test id="s1-t4" name="TC-04: Verify Product Sorting Functionality" line="34">
+<kw name="Open SauceDemo In Browser" owner="common" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:02:56.182416" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>headlesschrome</arg>
+<arg>options=add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-08-10T15:02:56.181889" elapsed="2.055600"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2026-08-10T15:02:58.238494" elapsed="0.002996"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2026-08-10T15:02:58.241490" elapsed="0.001000"/>
+</kw>
+<doc>Opens the SauceDemo application in Chrome headless mode.</doc>
+<status status="PASS" start="2026-08-10T15:02:56.181335" elapsed="2.062342"/>
+</kw>
+<kw name="Login As Standard User" owner="common">
+<kw name="Login To Application" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:02:58.245895" level="INFO">Executing JavaScript:
+function setVal(id, v) {let el = document.getElementById(id);let last = el.value;el.value = v;if (el._valueTracker) el._valueTracker.setValue(last);el.dispatchEvent(new Event('input', { bubbles: true }));}setVal('user-name', 'standard_user');setVal('password', 'secret_sauce');
+Without any arguments.</msg>
+<arg>function setVal(id, v) {</arg>
+<arg>let el = document.getElementById(id);</arg>
+<arg>let last = el.value;</arg>
+<arg>el.value = v;</arg>
+<arg>if (el._valueTracker) el._valueTracker.setValue(last);</arg>
+<arg>el.dispatchEvent(new Event('input', { bubbles: true }));</arg>
+<arg>}</arg>
+<arg>setVal('user-name', '${username}');</arg>
+<arg>setVal('password', '${password}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:02:58.245895" elapsed="0.024576"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:02:58.271470" level="INFO">Executing JavaScript:
+document.getElementById('login-button').click();
+Without any arguments.</msg>
+<arg>document.getElementById('login-button').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:02:58.270471" elapsed="0.136351"/>
+</kw>
+<arg>${VALID_USER}</arg>
+<arg>${VALID_PASSWORD}</arg>
+<doc>Enters credentials and submits the login form.</doc>
+<status status="PASS" start="2026-08-10T15:02:58.244878" elapsed="0.162947"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>inventory.html</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:02:58.407825" elapsed="0.035826"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${PAGE_TITLE}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-08-10T15:02:58.444697" elapsed="0.025996"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:02:58.472208" level="INFO">Verifying element 'class=title' contains exact text 'Products'.</msg>
+<arg>${PAGE_TITLE}</arg>
+<arg>Products</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:02:58.470693" elapsed="0.035837"/>
+</kw>
+<doc>Performs successful login using standard credentials.</doc>
+<status status="PASS" start="2026-08-10T15:02:58.243677" elapsed="0.262853"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:02:58.507535" level="INFO">Selecting options from selection list 'class=product_sort_container' by value lohi.</msg>
+<arg>${SORT_DROPDOWN}</arg>
+<arg>lohi</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2026-08-10T15:02:58.507535" elapsed="0.132907"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:02:58.641459" level="INFO">Verifying element 'class=active_option' contains exact text 'Price (low to high)'.</msg>
+<arg>${ACTIVE_SORT_LABEL}</arg>
+<arg>Price (low to high)</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:02:58.641459" elapsed="0.023086"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:02:58.664545" level="INFO">Selecting options from selection list 'class=product_sort_container' by value za.</msg>
+<arg>${SORT_DROPDOWN}</arg>
+<arg>za</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2026-08-10T15:02:58.664545" elapsed="0.114562"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:02:58.780111" level="INFO">Verifying element 'class=active_option' contains exact text 'Name (Z to A)'.</msg>
+<arg>${ACTIVE_SORT_LABEL}</arg>
+<arg>Name (Z to A)</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:02:58.779107" elapsed="0.026456"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-08-10T15:02:58.805563" elapsed="2.146818"/>
+</kw>
+<doc>Closes the active browser session.</doc>
+<status status="PASS" start="2026-08-10T15:02:58.805563" elapsed="2.146818"/>
+</kw>
+<doc>FR-04: Products reorder dynamically when sorting option is selected.</doc>
+<tag>inventory</tag>
+<status status="PASS" start="2026-08-10T15:02:56.180822" elapsed="4.771559"/>
+</test>
+<test id="s1-t5" name="TC-05: Verify Product Details View" line="43">
+<kw name="Open SauceDemo In Browser" owner="common" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:00.954901" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>headlesschrome</arg>
+<arg>options=add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-08-10T15:03:00.954113" elapsed="1.773434"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2026-08-10T15:03:02.727547" elapsed="0.003994"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2026-08-10T15:03:02.731541" elapsed="0.001521"/>
+</kw>
+<doc>Opens the SauceDemo application in Chrome headless mode.</doc>
+<status status="PASS" start="2026-08-10T15:03:00.954113" elapsed="1.778949"/>
+</kw>
+<kw name="Login As Standard User" owner="common">
+<kw name="Login To Application" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:02.735078" level="INFO">Executing JavaScript:
+function setVal(id, v) {let el = document.getElementById(id);let last = el.value;el.value = v;if (el._valueTracker) el._valueTracker.setValue(last);el.dispatchEvent(new Event('input', { bubbles: true }));}setVal('user-name', 'standard_user');setVal('password', 'secret_sauce');
+Without any arguments.</msg>
+<arg>function setVal(id, v) {</arg>
+<arg>let el = document.getElementById(id);</arg>
+<arg>let last = el.value;</arg>
+<arg>el.value = v;</arg>
+<arg>if (el._valueTracker) el._valueTracker.setValue(last);</arg>
+<arg>el.dispatchEvent(new Event('input', { bubbles: true }));</arg>
+<arg>}</arg>
+<arg>setVal('user-name', '${username}');</arg>
+<arg>setVal('password', '${password}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:02.735078" elapsed="0.016504"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:02.752577" level="INFO">Executing JavaScript:
+document.getElementById('login-button').click();
+Without any arguments.</msg>
+<arg>document.getElementById('login-button').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:02.752577" elapsed="0.088886"/>
+</kw>
+<arg>${VALID_USER}</arg>
+<arg>${VALID_PASSWORD}</arg>
+<doc>Enters credentials and submits the login form.</doc>
+<status status="PASS" start="2026-08-10T15:03:02.734078" elapsed="0.108384"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>inventory.html</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:02.842974" elapsed="0.027121"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${PAGE_TITLE}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-08-10T15:03:02.871094" elapsed="0.014125"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:02.886158" level="INFO">Verifying element 'class=title' contains exact text 'Products'.</msg>
+<arg>${PAGE_TITLE}</arg>
+<arg>Products</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:02.886158" elapsed="0.035238"/>
+</kw>
+<doc>Performs successful login using standard credentials.</doc>
+<status status="PASS" start="2026-08-10T15:03:02.733062" elapsed="0.189335"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:02.922906" level="INFO">Clicking element 'xpath=//div[text()='Sauce Labs Backpack']'.</msg>
+<arg>xpath=//div[text()='Sauce Labs Backpack']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-08-10T15:03:02.922397" elapsed="0.092176"/>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:03.024633" level="INFO">Current location contains 'inventory-item.html'.</msg>
+<arg>inventory-item.html</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:03.015571" elapsed="0.009062"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:03.025633" level="INFO">Verifying element 'class=inventory_details_name' contains exact text 'Sauce Labs Backpack'.</msg>
+<arg>${DETAILS_NAME}</arg>
+<arg>Sauce Labs Backpack</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:03.024633" elapsed="0.024102"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:03.049674" level="INFO">Verifying element 'class=inventory_details_price' contains exact text '$29.99'.</msg>
+<arg>${DETAILS_PRICE}</arg>
+<arg>$29.99</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:03.048735" elapsed="0.021822"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:03.071582" level="INFO">Executing JavaScript:
+document.getElementById('back-to-products').click();
+Without any arguments.</msg>
+<arg>document.getElementById('back-to-products').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:03.071582" elapsed="0.020770"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>inventory.html</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:03.092352" elapsed="0.014523"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-08-10T15:03:03.107879" elapsed="2.187494"/>
+</kw>
+<doc>Closes the active browser session.</doc>
+<status status="PASS" start="2026-08-10T15:03:03.106875" elapsed="2.188498"/>
+</kw>
+<doc>FR-05: Clicking product opens details page with price and description.</doc>
+<tag>inventory</tag>
+<status status="PASS" start="2026-08-10T15:03:00.953391" elapsed="4.341982"/>
+</test>
+<test id="s1-t6" name="TC-06: Verify Add Product To Cart" line="54">
+<kw name="Open SauceDemo In Browser" owner="common" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:05.298061" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>headlesschrome</arg>
+<arg>options=add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-08-10T15:03:05.297514" elapsed="1.721408"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2026-08-10T15:03:07.019923" elapsed="0.001512"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2026-08-10T15:03:07.022450" elapsed="0.000000"/>
+</kw>
+<doc>Opens the SauceDemo application in Chrome headless mode.</doc>
+<status status="PASS" start="2026-08-10T15:03:05.296973" elapsed="1.725989"/>
+</kw>
+<kw name="Login As Standard User" owner="common">
+<kw name="Login To Application" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:07.024974" level="INFO">Executing JavaScript:
+function setVal(id, v) {let el = document.getElementById(id);let last = el.value;el.value = v;if (el._valueTracker) el._valueTracker.setValue(last);el.dispatchEvent(new Event('input', { bubbles: true }));}setVal('user-name', 'standard_user');setVal('password', 'secret_sauce');
+Without any arguments.</msg>
+<arg>function setVal(id, v) {</arg>
+<arg>let el = document.getElementById(id);</arg>
+<arg>let last = el.value;</arg>
+<arg>el.value = v;</arg>
+<arg>if (el._valueTracker) el._valueTracker.setValue(last);</arg>
+<arg>el.dispatchEvent(new Event('input', { bubbles: true }));</arg>
+<arg>}</arg>
+<arg>setVal('user-name', '${username}');</arg>
+<arg>setVal('password', '${password}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:07.023973" elapsed="0.015536"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:07.040508" level="INFO">Executing JavaScript:
+document.getElementById('login-button').click();
+Without any arguments.</msg>
+<arg>document.getElementById('login-button').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:07.039509" elapsed="0.081073"/>
+</kw>
+<arg>${VALID_USER}</arg>
+<arg>${VALID_PASSWORD}</arg>
+<doc>Enters credentials and submits the login form.</doc>
+<status status="PASS" start="2026-08-10T15:03:07.023973" elapsed="0.096609"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>inventory.html</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:07.121586" elapsed="0.018669"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${PAGE_TITLE}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-08-10T15:03:07.140255" elapsed="0.014768"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:07.156027" level="INFO">Verifying element 'class=title' contains exact text 'Products'.</msg>
+<arg>${PAGE_TITLE}</arg>
+<arg>Products</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:07.156027" elapsed="0.028714"/>
+</kw>
+<doc>Performs successful login using standard credentials.</doc>
+<status status="PASS" start="2026-08-10T15:03:07.022962" elapsed="0.161779"/>
+</kw>
+<kw name="Add Item To Cart By Name" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-08-10T15:03:07.186736" level="INFO">${locator} = xpath=//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button</msg>
+<var>${locator}</var>
+<arg>xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-08-10T15:03:07.185772" elapsed="0.000964"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:07.186736" level="INFO">Executing JavaScript:
+document.evaluate("//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();
+Without any arguments.</msg>
+<arg>document.evaluate("//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:07.186736" elapsed="0.012873"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-08-10T15:03:07.500833" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-08-10T15:03:07.199609" elapsed="0.301224"/>
+</kw>
+<arg>Sauce Labs Backpack</arg>
+<doc>Locates item by name and clicks its Add to cart button.</doc>
+<status status="PASS" start="2026-08-10T15:03:07.184741" elapsed="0.316092"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:07.501459" level="INFO">Verifying element 'class=shopping_cart_badge' contains exact text '1'.</msg>
+<arg>${CART_BADGE}</arg>
+<arg>1</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:07.501459" elapsed="0.016539"/>
+</kw>
+<kw name="Add Item To Cart By Name" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-08-10T15:03:07.520135" level="INFO">${locator} = xpath=//div[text()='Sauce Labs Bike Light']/ancestor::div[@class='inventory_item']//button</msg>
+<var>${locator}</var>
+<arg>xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-08-10T15:03:07.519061" elapsed="0.001074"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:07.520135" level="INFO">Executing JavaScript:
+document.evaluate("//div[text()='Sauce Labs Bike Light']/ancestor::div[@class='inventory_item']//button", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();
+Without any arguments.</msg>
+<arg>document.evaluate("//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:07.520135" elapsed="0.007396"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-08-10T15:03:07.827732" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-08-10T15:03:07.527531" elapsed="0.300201"/>
+</kw>
+<arg>Sauce Labs Bike Light</arg>
+<doc>Locates item by name and clicks its Add to cart button.</doc>
+<status status="PASS" start="2026-08-10T15:03:07.517998" elapsed="0.309734"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:07.828350" level="INFO">Verifying element 'class=shopping_cart_badge' contains exact text '2'.</msg>
+<arg>${CART_BADGE}</arg>
+<arg>2</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:07.827732" elapsed="0.012752"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-08-10T15:03:07.841512" elapsed="2.103283"/>
+</kw>
+<doc>Closes the active browser session.</doc>
+<status status="PASS" start="2026-08-10T15:03:07.841512" elapsed="2.103283"/>
+</kw>
+<doc>FR-06: Cart count updates immediately when adding products.</doc>
+<tag>cart</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2026-08-10T15:03:05.296375" elapsed="4.648420"/>
+</test>
+<test id="s1-t7" name="TC-07: Verify Remove Product From Cart" line="63">
+<kw name="Open SauceDemo In Browser" owner="common" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:09.947308" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>headlesschrome</arg>
+<arg>options=add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-08-10T15:03:09.947308" elapsed="1.683826"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2026-08-10T15:03:11.632644" elapsed="0.002092"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2026-08-10T15:03:11.634736" elapsed="0.000000"/>
+</kw>
+<doc>Opens the SauceDemo application in Chrome headless mode.</doc>
+<status status="PASS" start="2026-08-10T15:03:09.946532" elapsed="1.689202"/>
+</kw>
+<kw name="Login As Standard User" owner="common">
+<kw name="Login To Application" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:11.636738" level="INFO">Executing JavaScript:
+function setVal(id, v) {let el = document.getElementById(id);let last = el.value;el.value = v;if (el._valueTracker) el._valueTracker.setValue(last);el.dispatchEvent(new Event('input', { bubbles: true }));}setVal('user-name', 'standard_user');setVal('password', 'secret_sauce');
+Without any arguments.</msg>
+<arg>function setVal(id, v) {</arg>
+<arg>let el = document.getElementById(id);</arg>
+<arg>let last = el.value;</arg>
+<arg>el.value = v;</arg>
+<arg>if (el._valueTracker) el._valueTracker.setValue(last);</arg>
+<arg>el.dispatchEvent(new Event('input', { bubbles: true }));</arg>
+<arg>}</arg>
+<arg>setVal('user-name', '${username}');</arg>
+<arg>setVal('password', '${password}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:11.636738" elapsed="0.014529"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:11.652265" level="INFO">Executing JavaScript:
+document.getElementById('login-button').click();
+Without any arguments.</msg>
+<arg>document.getElementById('login-button').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:11.651267" elapsed="0.097436"/>
+</kw>
+<arg>${VALID_USER}</arg>
+<arg>${VALID_PASSWORD}</arg>
+<doc>Enters credentials and submits the login form.</doc>
+<status status="PASS" start="2026-08-10T15:03:11.635734" elapsed="0.113970"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>inventory.html</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:11.749704" elapsed="0.021492"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${PAGE_TITLE}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-08-10T15:03:11.772194" elapsed="0.017146"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:11.790250" level="INFO">Verifying element 'class=title' contains exact text 'Products'.</msg>
+<arg>${PAGE_TITLE}</arg>
+<arg>Products</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:11.789340" elapsed="0.028454"/>
+</kw>
+<doc>Performs successful login using standard credentials.</doc>
+<status status="PASS" start="2026-08-10T15:03:11.635734" elapsed="0.182060"/>
+</kw>
+<kw name="Add Item To Cart By Name" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-08-10T15:03:11.819794" level="INFO">${locator} = xpath=//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button</msg>
+<var>${locator}</var>
+<arg>xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-08-10T15:03:11.818797" elapsed="0.000997"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:11.819794" level="INFO">Executing JavaScript:
+document.evaluate("//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();
+Without any arguments.</msg>
+<arg>document.evaluate("//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:11.819794" elapsed="0.012554"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-08-10T15:03:12.133601" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-08-10T15:03:11.832348" elapsed="0.301253"/>
+</kw>
+<arg>Sauce Labs Backpack</arg>
+<doc>Locates item by name and clicks its Add to cart button.</doc>
+<status status="PASS" start="2026-08-10T15:03:11.818797" elapsed="0.314804"/>
+</kw>
+<kw name="Add Item To Cart By Name" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-08-10T15:03:12.134725" level="INFO">${locator} = xpath=//div[text()='Sauce Labs Bike Light']/ancestor::div[@class='inventory_item']//button</msg>
+<var>${locator}</var>
+<arg>xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-08-10T15:03:12.134725" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:12.135611" level="INFO">Executing JavaScript:
+document.evaluate("//div[text()='Sauce Labs Bike Light']/ancestor::div[@class='inventory_item']//button", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();
+Without any arguments.</msg>
+<arg>document.evaluate("//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:12.135611" elapsed="0.008521"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-08-10T15:03:12.445706" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-08-10T15:03:12.144132" elapsed="0.301574"/>
+</kw>
+<arg>Sauce Labs Bike Light</arg>
+<doc>Locates item by name and clicks its Add to cart button.</doc>
+<status status="PASS" start="2026-08-10T15:03:12.133601" elapsed="0.312105"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:12.446723" level="INFO">Verifying element 'class=shopping_cart_badge' contains exact text '2'.</msg>
+<arg>${CART_BADGE}</arg>
+<arg>2</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:12.445706" elapsed="0.014524"/>
+</kw>
+<kw name="Remove Item From Cart By Name" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:12.461230" level="INFO">Executing JavaScript:
+document.evaluate("//div[text()='Sauce Labs Backpack']/ancestor::div[contains(@class, 'item')]//button[text()='Remove']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();
+Without any arguments.</msg>
+<arg>document.evaluate("//div[text()='${item_name}']/ancestor::div[contains(@class, 'item')]//button[text()='Remove']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:12.460230" elapsed="0.009523"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-08-10T15:03:12.771039" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-08-10T15:03:12.469753" elapsed="0.301286"/>
+</kw>
+<arg>Sauce Labs Backpack</arg>
+<doc>Locates item by name and clicks its Remove button.</doc>
+<status status="PASS" start="2026-08-10T15:03:12.460230" elapsed="0.310809"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:12.771039" level="INFO">Verifying element 'class=shopping_cart_badge' contains exact text '1'.</msg>
+<arg>${CART_BADGE}</arg>
+<arg>1</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:12.771039" elapsed="0.017019"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-08-10T15:03:12.789057" elapsed="2.125584"/>
+</kw>
+<doc>Closes the active browser session.</doc>
+<status status="PASS" start="2026-08-10T15:03:12.789057" elapsed="2.125584"/>
+</kw>
+<doc>FR-07: Cart count decrements when removing products.</doc>
+<tag>cart</tag>
+<status status="PASS" start="2026-08-10T15:03:09.945674" elapsed="4.968967"/>
+</test>
+<test id="s1-t8" name="TC-08: Verify Shopping Cart Review" line="73">
+<kw name="Open SauceDemo In Browser" owner="common" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:14.916786" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>headlesschrome</arg>
+<arg>options=add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-08-10T15:03:14.916786" elapsed="1.644312"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2026-08-10T15:03:16.561098" elapsed="0.002524"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2026-08-10T15:03:16.563622" elapsed="0.001007"/>
+</kw>
+<doc>Opens the SauceDemo application in Chrome headless mode.</doc>
+<status status="PASS" start="2026-08-10T15:03:14.916255" elapsed="1.648374"/>
+</kw>
+<kw name="Login As Standard User" owner="common">
+<kw name="Login To Application" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:16.565630" level="INFO">Executing JavaScript:
+function setVal(id, v) {let el = document.getElementById(id);let last = el.value;el.value = v;if (el._valueTracker) el._valueTracker.setValue(last);el.dispatchEvent(new Event('input', { bubbles: true }));}setVal('user-name', 'standard_user');setVal('password', 'secret_sauce');
+Without any arguments.</msg>
+<arg>function setVal(id, v) {</arg>
+<arg>let el = document.getElementById(id);</arg>
+<arg>let last = el.value;</arg>
+<arg>el.value = v;</arg>
+<arg>if (el._valueTracker) el._valueTracker.setValue(last);</arg>
+<arg>el.dispatchEvent(new Event('input', { bubbles: true }));</arg>
+<arg>}</arg>
+<arg>setVal('user-name', '${username}');</arg>
+<arg>setVal('password', '${password}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:16.565630" elapsed="0.016527"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:16.582663" level="INFO">Executing JavaScript:
+document.getElementById('login-button').click();
+Without any arguments.</msg>
+<arg>document.getElementById('login-button').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:16.582663" elapsed="0.076587"/>
+</kw>
+<arg>${VALID_USER}</arg>
+<arg>${VALID_PASSWORD}</arg>
+<doc>Enters credentials and submits the login form.</doc>
+<status status="PASS" start="2026-08-10T15:03:16.565630" elapsed="0.093620"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>inventory.html</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:16.660252" elapsed="0.021072"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${PAGE_TITLE}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-08-10T15:03:16.681324" elapsed="0.014191"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:16.695515" level="INFO">Verifying element 'class=title' contains exact text 'Products'.</msg>
+<arg>${PAGE_TITLE}</arg>
+<arg>Products</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:16.695515" elapsed="0.025220"/>
+</kw>
+<doc>Performs successful login using standard credentials.</doc>
+<status status="PASS" start="2026-08-10T15:03:16.564629" elapsed="0.156106"/>
+</kw>
+<kw name="Add Item To Cart By Name" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-08-10T15:03:16.722244" level="INFO">${locator} = xpath=//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button</msg>
+<var>${locator}</var>
+<arg>xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-08-10T15:03:16.720735" elapsed="0.001509"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:16.722244" level="INFO">Executing JavaScript:
+document.evaluate("//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();
+Without any arguments.</msg>
+<arg>document.evaluate("//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:16.722244" elapsed="0.008563"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-08-10T15:03:17.033562" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-08-10T15:03:16.730807" elapsed="0.302755"/>
+</kw>
+<arg>Sauce Labs Backpack</arg>
+<doc>Locates item by name and clicks its Add to cart button.</doc>
+<status status="PASS" start="2026-08-10T15:03:16.720735" elapsed="0.312827"/>
+</kw>
+<kw name="Navigate To Cart" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:17.033562" level="INFO">Executing JavaScript:
+document.querySelector('.shopping_cart_link').click();
+Without any arguments.</msg>
+<arg>document.querySelector('.shopping_cart_link').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:17.033562" elapsed="0.011529"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>cart.html</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:17.045091" elapsed="0.006000"/>
+</kw>
+<doc>Clicks the shopping cart icon and waits for cart page to load.</doc>
+<status status="PASS" start="2026-08-10T15:03:17.033562" elapsed="0.017529"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:17.062166" level="INFO">Current page contains text 'Sauce Labs Backpack'.</msg>
+<arg>Sauce Labs Backpack</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-08-10T15:03:17.051091" elapsed="0.012119"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:17.071174" level="INFO">Current page contains text '$29.99'.</msg>
+<arg>$29.99</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-08-10T15:03:17.063210" elapsed="0.007964"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:17.072195" level="INFO">Executing JavaScript:
+document.getElementById('continue-shopping').click();
+Without any arguments.</msg>
+<arg>document.getElementById('continue-shopping').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:17.071174" elapsed="0.013119"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>inventory.html</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:17.085296" elapsed="0.003996"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-08-10T15:03:17.090311" elapsed="2.138252"/>
+</kw>
+<doc>Closes the active browser session.</doc>
+<status status="PASS" start="2026-08-10T15:03:17.090311" elapsed="2.139248"/>
+</kw>
+<doc>FR-08: Reviewing cart page displays selected items accurately.</doc>
+<tag>cart</tag>
+<status status="PASS" start="2026-08-10T15:03:14.915645" elapsed="4.313914"/>
+</test>
+<test id="s1-t9" name="TC-09: Verify Checkout Required Fields Validation" line="84">
+<kw name="Open SauceDemo In Browser" owner="common" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:19.232909" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>headlesschrome</arg>
+<arg>options=add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-08-10T15:03:19.231675" elapsed="1.773655"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2026-08-10T15:03:21.006327" elapsed="0.002004"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2026-08-10T15:03:21.008331" elapsed="0.000995"/>
+</kw>
+<doc>Opens the SauceDemo application in Chrome headless mode.</doc>
+<status status="PASS" start="2026-08-10T15:03:19.230882" elapsed="1.778444"/>
+</kw>
+<kw name="Login As Standard User" owner="common">
+<kw name="Login To Application" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:21.012844" level="INFO">Executing JavaScript:
+function setVal(id, v) {let el = document.getElementById(id);let last = el.value;el.value = v;if (el._valueTracker) el._valueTracker.setValue(last);el.dispatchEvent(new Event('input', { bubbles: true }));}setVal('user-name', 'standard_user');setVal('password', 'secret_sauce');
+Without any arguments.</msg>
+<arg>function setVal(id, v) {</arg>
+<arg>let el = document.getElementById(id);</arg>
+<arg>let last = el.value;</arg>
+<arg>el.value = v;</arg>
+<arg>if (el._valueTracker) el._valueTracker.setValue(last);</arg>
+<arg>el.dispatchEvent(new Event('input', { bubbles: true }));</arg>
+<arg>}</arg>
+<arg>setVal('user-name', '${username}');</arg>
+<arg>setVal('password', '${password}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:21.012844" elapsed="0.014540"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:21.028387" level="INFO">Executing JavaScript:
+document.getElementById('login-button').click();
+Without any arguments.</msg>
+<arg>document.getElementById('login-button').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:21.028387" elapsed="0.104065"/>
+</kw>
+<arg>${VALID_USER}</arg>
+<arg>${VALID_PASSWORD}</arg>
+<doc>Enters credentials and submits the login form.</doc>
+<status status="PASS" start="2026-08-10T15:03:21.011336" elapsed="0.121626"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>inventory.html</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:21.132962" elapsed="0.023852"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${PAGE_TITLE}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-08-10T15:03:21.156814" elapsed="0.018067"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:21.175882" level="INFO">Verifying element 'class=title' contains exact text 'Products'.</msg>
+<arg>${PAGE_TITLE}</arg>
+<arg>Products</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:21.174881" elapsed="0.031494"/>
+</kw>
+<doc>Performs successful login using standard credentials.</doc>
+<status status="PASS" start="2026-08-10T15:03:21.010345" elapsed="0.196030"/>
+</kw>
+<kw name="Add Item To Cart By Name" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-08-10T15:03:21.208378" level="INFO">${locator} = xpath=//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button</msg>
+<var>${locator}</var>
+<arg>xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-08-10T15:03:21.207378" elapsed="0.001000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:21.209375" level="INFO">Executing JavaScript:
+document.evaluate("//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();
+Without any arguments.</msg>
+<arg>document.evaluate("//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:21.209375" elapsed="0.011228"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-08-10T15:03:21.520977" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-08-10T15:03:21.220603" elapsed="0.300374"/>
+</kw>
+<arg>Sauce Labs Backpack</arg>
+<doc>Locates item by name and clicks its Add to cart button.</doc>
+<status status="PASS" start="2026-08-10T15:03:21.207378" elapsed="0.313599"/>
+</kw>
+<kw name="Proceed To Checkout" owner="common">
+<kw name="Navigate To Cart" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:21.522499" level="INFO">Executing JavaScript:
+document.querySelector('.shopping_cart_link').click();
+Without any arguments.</msg>
+<arg>document.querySelector('.shopping_cart_link').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:21.521488" elapsed="0.016685"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>cart.html</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:21.538173" elapsed="0.009527"/>
+</kw>
+<doc>Clicks the shopping cart icon and waits for cart page to load.</doc>
+<status status="PASS" start="2026-08-10T15:03:21.521488" elapsed="0.027213"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>id=checkout</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-08-10T15:03:21.548701" elapsed="0.012552"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:21.561253" level="INFO">Executing JavaScript:
+document.getElementById('checkout').click();
+Without any arguments.</msg>
+<arg>document.getElementById('checkout').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:21.561253" elapsed="0.012044"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>checkout-step-one.html</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:21.573297" elapsed="0.005021"/>
+</kw>
+<doc>Navigates from cart to checkout step 1.</doc>
+<status status="PASS" start="2026-08-10T15:03:21.521488" elapsed="0.056830"/>
+</kw>
+<kw name="Submit Checkout Step One" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:21.579309" level="INFO">Executing JavaScript:
+document.getElementById('continue').click();
+Without any arguments.</msg>
+<arg>document.getElementById('continue').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:21.579309" elapsed="0.014039"/>
+</kw>
+<doc>Clicks Continue on checkout step 1.</doc>
+<status status="PASS" start="2026-08-10T15:03:21.578318" elapsed="0.016033"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CHECKOUT_ERROR_BANNER}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-08-10T15:03:21.594351" elapsed="0.019069"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:21.624915" level="INFO">Element 'css=h3[data-test='error']' contains text 'Error: First Name is required'.</msg>
+<arg>${CHECKOUT_ERROR_BANNER}</arg>
+<arg>Error: First Name is required</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:21.613420" elapsed="0.011495"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-08-10T15:03:21.625942" elapsed="2.105772"/>
+</kw>
+<doc>Closes the active browser session.</doc>
+<status status="PASS" start="2026-08-10T15:03:21.625942" elapsed="2.105772"/>
+</kw>
+<doc>FR-09: Submitting blank checkout form triggers First Name error.</doc>
+<tag>checkout</tag>
+<tag>negative</tag>
+<status status="PASS" start="2026-08-10T15:03:19.230241" elapsed="4.502472"/>
+</test>
+<test id="s1-t10" name="TC-10: Verify Checkout Incomplete Data Validation" line="94">
+<kw name="Open SauceDemo In Browser" owner="common" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:23.733995" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>headlesschrome</arg>
+<arg>options=add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-08-10T15:03:23.733995" elapsed="1.688375"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2026-08-10T15:03:25.422887" elapsed="0.002016"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2026-08-10T15:03:25.425902" elapsed="0.000000"/>
+</kw>
+<doc>Opens the SauceDemo application in Chrome headless mode.</doc>
+<status status="PASS" start="2026-08-10T15:03:23.733424" elapsed="1.692478"/>
+</kw>
+<kw name="Login As Standard User" owner="common">
+<kw name="Login To Application" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:25.428953" level="INFO">Executing JavaScript:
+function setVal(id, v) {let el = document.getElementById(id);let last = el.value;el.value = v;if (el._valueTracker) el._valueTracker.setValue(last);el.dispatchEvent(new Event('input', { bubbles: true }));}setVal('user-name', 'standard_user');setVal('password', 'secret_sauce');
+Without any arguments.</msg>
+<arg>function setVal(id, v) {</arg>
+<arg>let el = document.getElementById(id);</arg>
+<arg>let last = el.value;</arg>
+<arg>el.value = v;</arg>
+<arg>if (el._valueTracker) el._valueTracker.setValue(last);</arg>
+<arg>el.dispatchEvent(new Event('input', { bubbles: true }));</arg>
+<arg>}</arg>
+<arg>setVal('user-name', '${username}');</arg>
+<arg>setVal('password', '${password}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:25.427953" elapsed="0.015620"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:25.444580" level="INFO">Executing JavaScript:
+document.getElementById('login-button').click();
+Without any arguments.</msg>
+<arg>document.getElementById('login-button').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:25.443573" elapsed="0.094061"/>
+</kw>
+<arg>${VALID_USER}</arg>
+<arg>${VALID_PASSWORD}</arg>
+<doc>Enters credentials and submits the login form.</doc>
+<status status="PASS" start="2026-08-10T15:03:25.427953" elapsed="0.109681"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>inventory.html</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:25.539148" elapsed="0.010418"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${PAGE_TITLE}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-08-10T15:03:25.549566" elapsed="0.026028"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:25.576596" level="INFO">Verifying element 'class=title' contains exact text 'Products'.</msg>
+<arg>${PAGE_TITLE}</arg>
+<arg>Products</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:25.576596" elapsed="0.034520"/>
+</kw>
+<doc>Performs successful login using standard credentials.</doc>
+<status status="PASS" start="2026-08-10T15:03:25.426930" elapsed="0.184186"/>
+</kw>
+<kw name="Add Item To Cart By Name" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-08-10T15:03:25.612633" level="INFO">${locator} = xpath=//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button</msg>
+<var>${locator}</var>
+<arg>xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-08-10T15:03:25.611116" elapsed="0.001517"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:25.613646" level="INFO">Executing JavaScript:
+document.evaluate("//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();
+Without any arguments.</msg>
+<arg>document.evaluate("//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:25.612633" elapsed="0.012540"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-08-10T15:03:25.926580" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-08-10T15:03:25.625173" elapsed="0.301407"/>
+</kw>
+<arg>Sauce Labs Backpack</arg>
+<doc>Locates item by name and clicks its Add to cart button.</doc>
+<status status="PASS" start="2026-08-10T15:03:25.611116" elapsed="0.315464"/>
+</kw>
+<kw name="Proceed To Checkout" owner="common">
+<kw name="Navigate To Cart" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:25.927085" level="INFO">Executing JavaScript:
+document.querySelector('.shopping_cart_link').click();
+Without any arguments.</msg>
+<arg>document.querySelector('.shopping_cart_link').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:25.927085" elapsed="0.015562"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>cart.html</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:25.942647" elapsed="0.007018"/>
+</kw>
+<doc>Clicks the shopping cart icon and waits for cart page to load.</doc>
+<status status="PASS" start="2026-08-10T15:03:25.927085" elapsed="0.022580"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>id=checkout</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-08-10T15:03:25.950671" elapsed="0.012693"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:25.963364" level="INFO">Executing JavaScript:
+document.getElementById('checkout').click();
+Without any arguments.</msg>
+<arg>document.getElementById('checkout').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:25.963364" elapsed="0.011515"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>checkout-step-one.html</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:25.974879" elapsed="0.011535"/>
+</kw>
+<doc>Navigates from cart to checkout step 1.</doc>
+<status status="PASS" start="2026-08-10T15:03:25.927085" elapsed="0.059329"/>
+</kw>
+<kw name="Fill Checkout Form" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:25.987417" level="INFO">Executing JavaScript:
+function setInput(id, val) {let input = document.getElementById(id);if (!input) return;let lastValue = input.value;input.value = val;let tracker = input._valueTracker;if (tracker) tracker.setValue(lastValue);input.dispatchEvent(new Event('input', { bubbles: true }));input.dispatchEvent(new Event('change', { bubbles: true }));}setInput('first-name', 'Meet');setInput('last-name', 'Ahalpara');setInput('postal-code', '');
+Without any arguments.</msg>
+<arg>function setInput(id, val) {</arg>
+<arg>let input = document.getElementById(id);</arg>
+<arg>if (!input) return;</arg>
+<arg>let lastValue = input.value;</arg>
+<arg>input.value = val;</arg>
+<arg>let tracker = input._valueTracker;</arg>
+<arg>if (tracker) tracker.setValue(lastValue);</arg>
+<arg>input.dispatchEvent(new Event('input', { bubbles: true }));</arg>
+<arg>input.dispatchEvent(new Event('change', { bubbles: true }));</arg>
+<arg>}</arg>
+<arg>setInput('first-name', '${first_name}');</arg>
+<arg>setInput('last-name', '${last_name}');</arg>
+<arg>setInput('postal-code', '${postal_code}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:25.987417" elapsed="0.011514"/>
+</kw>
+<arg>${FIRST_NAME}</arg>
+<arg>${LAST_NAME}</arg>
+<arg>${EMPTY}</arg>
+<doc>Fills customer information fields in Checkout Step 1.</doc>
+<status status="PASS" start="2026-08-10T15:03:25.986414" elapsed="0.012517"/>
+</kw>
+<kw name="Submit Checkout Step One" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:25.999931" level="INFO">Executing JavaScript:
+document.getElementById('continue').click();
+Without any arguments.</msg>
+<arg>document.getElementById('continue').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:25.999931" elapsed="0.011523"/>
+</kw>
+<doc>Clicks Continue on checkout step 1.</doc>
+<status status="PASS" start="2026-08-10T15:03:25.998931" elapsed="0.012523"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CHECKOUT_ERROR_BANNER}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-08-10T15:03:26.011454" elapsed="0.024567"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:26.050056" level="INFO">Element 'css=h3[data-test='error']' contains text 'Error: Postal Code is required'.</msg>
+<arg>${CHECKOUT_ERROR_BANNER}</arg>
+<arg>Error: Postal Code is required</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:26.036021" elapsed="0.014035"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-08-10T15:03:26.051054" elapsed="2.139470"/>
+</kw>
+<doc>Closes the active browser session.</doc>
+<status status="PASS" start="2026-08-10T15:03:26.051054" elapsed="2.139470"/>
+</kw>
+<doc>FR-10: Submitting missing postal code triggers Postal Code error.</doc>
+<tag>checkout</tag>
+<tag>negative</tag>
+<status status="PASS" start="2026-08-10T15:03:23.732713" elapsed="4.457811"/>
+</test>
+<test id="s1-t11" name="TC-11: Verify Checkout Overview Tax and Total Calculations" line="105">
+<kw name="Open SauceDemo In Browser" owner="common" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:28.192918" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>headlesschrome</arg>
+<arg>options=add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-08-10T15:03:28.192354" elapsed="1.742264"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2026-08-10T15:03:29.935616" elapsed="0.002998"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2026-08-10T15:03:29.938614" elapsed="0.000000"/>
+</kw>
+<doc>Opens the SauceDemo application in Chrome headless mode.</doc>
+<status status="PASS" start="2026-08-10T15:03:28.191806" elapsed="1.746808"/>
+</kw>
+<kw name="Login As Standard User" owner="common">
+<kw name="Login To Application" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:29.940985" level="INFO">Executing JavaScript:
+function setVal(id, v) {let el = document.getElementById(id);let last = el.value;el.value = v;if (el._valueTracker) el._valueTracker.setValue(last);el.dispatchEvent(new Event('input', { bubbles: true }));}setVal('user-name', 'standard_user');setVal('password', 'secret_sauce');
+Without any arguments.</msg>
+<arg>function setVal(id, v) {</arg>
+<arg>let el = document.getElementById(id);</arg>
+<arg>let last = el.value;</arg>
+<arg>el.value = v;</arg>
+<arg>if (el._valueTracker) el._valueTracker.setValue(last);</arg>
+<arg>el.dispatchEvent(new Event('input', { bubbles: true }));</arg>
+<arg>}</arg>
+<arg>setVal('user-name', '${username}');</arg>
+<arg>setVal('password', '${password}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:29.940985" elapsed="0.031357"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:29.973359" level="INFO">Executing JavaScript:
+document.getElementById('login-button').click();
+Without any arguments.</msg>
+<arg>document.getElementById('login-button').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:29.973359" elapsed="0.182215"/>
+</kw>
+<arg>${VALID_USER}</arg>
+<arg>${VALID_PASSWORD}</arg>
+<doc>Enters credentials and submits the login form.</doc>
+<status status="PASS" start="2026-08-10T15:03:29.939967" elapsed="0.215607"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>inventory.html</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:30.156576" elapsed="0.029254"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${PAGE_TITLE}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-08-10T15:03:30.186831" elapsed="0.030263"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:30.219084" level="INFO">Verifying element 'class=title' contains exact text 'Products'.</msg>
+<arg>${PAGE_TITLE}</arg>
+<arg>Products</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:30.218083" elapsed="0.073336"/>
+</kw>
+<doc>Performs successful login using standard credentials.</doc>
+<status status="PASS" start="2026-08-10T15:03:29.939967" elapsed="0.351452"/>
+</kw>
+<kw name="Add Item To Cart By Name" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-08-10T15:03:30.293950" level="INFO">${locator} = xpath=//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button</msg>
+<var>${locator}</var>
+<arg>xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-08-10T15:03:30.292933" elapsed="0.001017"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:30.295963" level="INFO">Executing JavaScript:
+document.evaluate("//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();
+Without any arguments.</msg>
+<arg>document.evaluate("//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:30.294963" elapsed="0.019075"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-08-10T15:03:30.615591" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-08-10T15:03:30.314038" elapsed="0.301553"/>
+</kw>
+<arg>Sauce Labs Backpack</arg>
+<doc>Locates item by name and clicks its Add to cart button.</doc>
+<status status="PASS" start="2026-08-10T15:03:30.291419" elapsed="0.324681"/>
+</kw>
+<kw name="Proceed To Checkout" owner="common">
+<kw name="Navigate To Cart" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:30.617118" level="INFO">Executing JavaScript:
+document.querySelector('.shopping_cart_link').click();
+Without any arguments.</msg>
+<arg>document.querySelector('.shopping_cart_link').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:30.617118" elapsed="0.014523"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>cart.html</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:30.631641" elapsed="0.008317"/>
+</kw>
+<doc>Clicks the shopping cart icon and waits for cart page to load.</doc>
+<status status="PASS" start="2026-08-10T15:03:30.616100" elapsed="0.023858"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>id=checkout</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-08-10T15:03:30.639958" elapsed="0.019568"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:30.660524" level="INFO">Executing JavaScript:
+document.getElementById('checkout').click();
+Without any arguments.</msg>
+<arg>document.getElementById('checkout').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:30.659526" elapsed="0.020067"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>checkout-step-one.html</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:30.680593" elapsed="0.017056"/>
+</kw>
+<doc>Navigates from cart to checkout step 1.</doc>
+<status status="PASS" start="2026-08-10T15:03:30.616100" elapsed="0.081549"/>
+</kw>
+<kw name="Fill Checkout Form" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:30.699651" level="INFO">Executing JavaScript:
+function setInput(id, val) {let input = document.getElementById(id);if (!input) return;let lastValue = input.value;input.value = val;let tracker = input._valueTracker;if (tracker) tracker.setValue(lastValue);input.dispatchEvent(new Event('input', { bubbles: true }));input.dispatchEvent(new Event('change', { bubbles: true }));}setInput('first-name', 'Meet');setInput('last-name', 'Ahalpara');setInput('postal-code', 'K2G 1V8');
+Without any arguments.</msg>
+<arg>function setInput(id, val) {</arg>
+<arg>let input = document.getElementById(id);</arg>
+<arg>if (!input) return;</arg>
+<arg>let lastValue = input.value;</arg>
+<arg>input.value = val;</arg>
+<arg>let tracker = input._valueTracker;</arg>
+<arg>if (tracker) tracker.setValue(lastValue);</arg>
+<arg>input.dispatchEvent(new Event('input', { bubbles: true }));</arg>
+<arg>input.dispatchEvent(new Event('change', { bubbles: true }));</arg>
+<arg>}</arg>
+<arg>setInput('first-name', '${first_name}');</arg>
+<arg>setInput('last-name', '${last_name}');</arg>
+<arg>setInput('postal-code', '${postal_code}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:30.698650" elapsed="0.020457"/>
+</kw>
+<arg>${FIRST_NAME}</arg>
+<arg>${LAST_NAME}</arg>
+<arg>${POSTAL_CODE}</arg>
+<doc>Fills customer information fields in Checkout Step 1.</doc>
+<status status="PASS" start="2026-08-10T15:03:30.698650" elapsed="0.021457"/>
+</kw>
+<kw name="Submit Checkout Step One" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:30.721106" level="INFO">Executing JavaScript:
+document.getElementById('continue').click();
+Without any arguments.</msg>
+<arg>document.getElementById('continue').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:30.721106" elapsed="0.033192"/>
+</kw>
+<doc>Clicks Continue on checkout step 1.</doc>
+<status status="PASS" start="2026-08-10T15:03:30.720107" elapsed="0.034191"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>checkout-step-two.html</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:30.754298" elapsed="0.014594"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:30.792383" level="INFO">Element 'class=summary_subtotal_label' contains text 'Item total: $29.99'.</msg>
+<arg>${SUBTOTAL_LABEL}</arg>
+<arg>Item total: $29.99</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:30.769903" elapsed="0.022480"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:30.820440" level="INFO">Element 'class=summary_tax_label' contains text 'Tax: $2.40'.</msg>
+<arg>${TAX_LABEL}</arg>
+<arg>Tax: $2.40</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:30.792383" elapsed="0.028057"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:30.852209" level="INFO">Element 'class=summary_total_label' contains text 'Total: $32.39'.</msg>
+<arg>${TOTAL_LABEL}</arg>
+<arg>Total: $32.39</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:30.820440" elapsed="0.031769"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-08-10T15:03:30.852719" elapsed="2.168093"/>
+</kw>
+<doc>Closes the active browser session.</doc>
+<status status="PASS" start="2026-08-10T15:03:30.852719" elapsed="2.168093"/>
+</kw>
+<doc>FR-11: Overview displays correct item subtotal, 8% tax, and total.</doc>
+<tag>checkout</tag>
+<status status="PASS" start="2026-08-10T15:03:28.191278" elapsed="4.829534"/>
+</test>
+<test id="s1-t12" name="TC-12: Verify Order Completion Confirmation" line="118">
+<kw name="Open SauceDemo In Browser" owner="common" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:33.023442" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>headlesschrome</arg>
+<arg>options=add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-08-10T15:03:33.022895" elapsed="2.252666"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2026-08-10T15:03:35.276556" elapsed="0.002003"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2026-08-10T15:03:35.279563" elapsed="0.000000"/>
+</kw>
+<doc>Opens the SauceDemo application in Chrome headless mode.</doc>
+<status status="PASS" start="2026-08-10T15:03:33.022355" elapsed="2.257208"/>
+</kw>
+<kw name="Login As Standard User" owner="common">
+<kw name="Login To Application" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:35.281561" level="INFO">Executing JavaScript:
+function setVal(id, v) {let el = document.getElementById(id);let last = el.value;el.value = v;if (el._valueTracker) el._valueTracker.setValue(last);el.dispatchEvent(new Event('input', { bubbles: true }));}setVal('user-name', 'standard_user');setVal('password', 'secret_sauce');
+Without any arguments.</msg>
+<arg>function setVal(id, v) {</arg>
+<arg>let el = document.getElementById(id);</arg>
+<arg>let last = el.value;</arg>
+<arg>el.value = v;</arg>
+<arg>if (el._valueTracker) el._valueTracker.setValue(last);</arg>
+<arg>el.dispatchEvent(new Event('input', { bubbles: true }));</arg>
+<arg>}</arg>
+<arg>setVal('user-name', '${username}');</arg>
+<arg>setVal('password', '${password}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:35.281561" elapsed="0.017683"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:35.300261" level="INFO">Executing JavaScript:
+document.getElementById('login-button').click();
+Without any arguments.</msg>
+<arg>document.getElementById('login-button').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:35.300261" elapsed="0.080803"/>
+</kw>
+<arg>${VALID_USER}</arg>
+<arg>${VALID_PASSWORD}</arg>
+<doc>Enters credentials and submits the login form.</doc>
+<status status="PASS" start="2026-08-10T15:03:35.280561" elapsed="0.100503"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>inventory.html</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:35.381064" elapsed="0.017068"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${PAGE_TITLE}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-08-10T15:03:35.398132" elapsed="0.015580"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:35.414729" level="INFO">Verifying element 'class=title' contains exact text 'Products'.</msg>
+<arg>${PAGE_TITLE}</arg>
+<arg>Products</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:35.413712" elapsed="0.028893"/>
+</kw>
+<doc>Performs successful login using standard credentials.</doc>
+<status status="PASS" start="2026-08-10T15:03:35.280561" elapsed="0.162044"/>
+</kw>
+<kw name="Add Item To Cart By Name" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-08-10T15:03:35.443739" level="INFO">${locator} = xpath=//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button</msg>
+<var>${locator}</var>
+<arg>xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-08-10T15:03:35.443739" elapsed="0.001000"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:35.444739" level="INFO">Executing JavaScript:
+document.evaluate("//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();
+Without any arguments.</msg>
+<arg>document.evaluate("//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:35.444739" elapsed="0.011525"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-08-10T15:03:35.757654" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-08-10T15:03:35.456264" elapsed="0.301390"/>
+</kw>
+<arg>Sauce Labs Backpack</arg>
+<doc>Locates item by name and clicks its Add to cart button.</doc>
+<status status="PASS" start="2026-08-10T15:03:35.442605" elapsed="0.315049"/>
+</kw>
+<kw name="Proceed To Checkout" owner="common">
+<kw name="Navigate To Cart" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:35.758765" level="INFO">Executing JavaScript:
+document.querySelector('.shopping_cart_link').click();
+Without any arguments.</msg>
+<arg>document.querySelector('.shopping_cart_link').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:35.758765" elapsed="0.011436"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>cart.html</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:35.771193" elapsed="0.006519"/>
+</kw>
+<doc>Clicks the shopping cart icon and waits for cart page to load.</doc>
+<status status="PASS" start="2026-08-10T15:03:35.757654" elapsed="0.020058"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>id=checkout</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-08-10T15:03:35.777712" elapsed="0.011518"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:35.790253" level="INFO">Executing JavaScript:
+document.getElementById('checkout').click();
+Without any arguments.</msg>
+<arg>document.getElementById('checkout').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:35.789230" elapsed="0.011164"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>checkout-step-one.html</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:35.801394" elapsed="0.006087"/>
+</kw>
+<doc>Navigates from cart to checkout step 1.</doc>
+<status status="PASS" start="2026-08-10T15:03:35.757654" elapsed="0.049827"/>
+</kw>
+<kw name="Fill Checkout Form" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:35.808453" level="INFO">Executing JavaScript:
+function setInput(id, val) {let input = document.getElementById(id);if (!input) return;let lastValue = input.value;input.value = val;let tracker = input._valueTracker;if (tracker) tracker.setValue(lastValue);input.dispatchEvent(new Event('input', { bubbles: true }));input.dispatchEvent(new Event('change', { bubbles: true }));}setInput('first-name', 'Meet');setInput('last-name', 'Ahalpara');setInput('postal-code', 'K2G 1V8');
+Without any arguments.</msg>
+<arg>function setInput(id, val) {</arg>
+<arg>let input = document.getElementById(id);</arg>
+<arg>if (!input) return;</arg>
+<arg>let lastValue = input.value;</arg>
+<arg>input.value = val;</arg>
+<arg>let tracker = input._valueTracker;</arg>
+<arg>if (tracker) tracker.setValue(lastValue);</arg>
+<arg>input.dispatchEvent(new Event('input', { bubbles: true }));</arg>
+<arg>input.dispatchEvent(new Event('change', { bubbles: true }));</arg>
+<arg>}</arg>
+<arg>setInput('first-name', '${first_name}');</arg>
+<arg>setInput('last-name', '${last_name}');</arg>
+<arg>setInput('postal-code', '${postal_code}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:35.808453" elapsed="0.012087"/>
+</kw>
+<arg>${FIRST_NAME}</arg>
+<arg>${LAST_NAME}</arg>
+<arg>${POSTAL_CODE}</arg>
+<doc>Fills customer information fields in Checkout Step 1.</doc>
+<status status="PASS" start="2026-08-10T15:03:35.807481" elapsed="0.013059"/>
+</kw>
+<kw name="Submit Checkout Step One" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:35.821647" level="INFO">Executing JavaScript:
+document.getElementById('continue').click();
+Without any arguments.</msg>
+<arg>document.getElementById('continue').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:35.821647" elapsed="0.016973"/>
+</kw>
+<doc>Clicks Continue on checkout step 1.</doc>
+<status status="PASS" start="2026-08-10T15:03:35.820540" elapsed="0.018080"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>checkout-step-two.html</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:35.838620" elapsed="0.005516"/>
+</kw>
+<kw name="Complete Order" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:35.845157" level="INFO">Executing JavaScript:
+document.getElementById('finish').click();
+Without any arguments.</msg>
+<arg>document.getElementById('finish').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:35.844136" elapsed="0.014522"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>checkout-complete.html</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:35.858658" elapsed="0.008555"/>
+</kw>
+<doc>Clicks Finish on checkout step 2.</doc>
+<status status="PASS" start="2026-08-10T15:03:35.844136" elapsed="0.023077"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:35.868178" level="INFO">Verifying element 'class=complete-header' contains exact text 'Thank you for your order!'.</msg>
+<arg>${COMPLETE_HEADER}</arg>
+<arg>Thank you for your order!</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:35.868178" elapsed="0.014018"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-08-10T15:03:35.883207" elapsed="2.106760"/>
+</kw>
+<doc>Closes the active browser session.</doc>
+<status status="PASS" start="2026-08-10T15:03:35.883207" elapsed="2.106760"/>
+</kw>
+<doc>FR-12: Clicking Finish shows order confirmation and back home navigation.</doc>
+<tag>checkout</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2026-08-10T15:03:33.020812" elapsed="4.969155"/>
+</test>
+<test id="s1-t13" name="TC-13: Verify Checkout Cancellation Redirection" line="130">
+<kw name="Open SauceDemo In Browser" owner="common" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:37.992641" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>headlesschrome</arg>
+<arg>options=add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-08-10T15:03:37.992641" elapsed="1.505262"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2026-08-10T15:03:39.498903" elapsed="0.003519"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2026-08-10T15:03:39.502422" elapsed="0.001016"/>
+</kw>
+<doc>Opens the SauceDemo application in Chrome headless mode.</doc>
+<status status="PASS" start="2026-08-10T15:03:37.991541" elapsed="1.511897"/>
+</kw>
+<kw name="Login As Standard User" owner="common">
+<kw name="Login To Application" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:39.506451" level="INFO">Executing JavaScript:
+function setVal(id, v) {let el = document.getElementById(id);let last = el.value;el.value = v;if (el._valueTracker) el._valueTracker.setValue(last);el.dispatchEvent(new Event('input', { bubbles: true }));}setVal('user-name', 'standard_user');setVal('password', 'secret_sauce');
+Without any arguments.</msg>
+<arg>function setVal(id, v) {</arg>
+<arg>let el = document.getElementById(id);</arg>
+<arg>let last = el.value;</arg>
+<arg>el.value = v;</arg>
+<arg>if (el._valueTracker) el._valueTracker.setValue(last);</arg>
+<arg>el.dispatchEvent(new Event('input', { bubbles: true }));</arg>
+<arg>}</arg>
+<arg>setVal('user-name', '${username}');</arg>
+<arg>setVal('password', '${password}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:39.505453" elapsed="0.362311"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:39.868773" level="INFO">Executing JavaScript:
+document.getElementById('login-button').click();
+Without any arguments.</msg>
+<arg>document.getElementById('login-button').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:39.868773" elapsed="0.166051"/>
+</kw>
+<arg>${VALID_USER}</arg>
+<arg>${VALID_PASSWORD}</arg>
+<doc>Enters credentials and submits the login form.</doc>
+<status status="PASS" start="2026-08-10T15:03:39.504437" elapsed="0.531387"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>inventory.html</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:40.035824" elapsed="0.027622"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${PAGE_TITLE}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-08-10T15:03:40.063446" elapsed="0.016543"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:40.080987" level="INFO">Verifying element 'class=title' contains exact text 'Products'.</msg>
+<arg>${PAGE_TITLE}</arg>
+<arg>Products</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:40.079989" elapsed="0.036416"/>
+</kw>
+<doc>Performs successful login using standard credentials.</doc>
+<status status="PASS" start="2026-08-10T15:03:39.504437" elapsed="0.611968"/>
+</kw>
+<kw name="Add Item To Cart By Name" owner="common">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-08-10T15:03:40.118398" level="INFO">${locator} = xpath=//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button</msg>
+<var>${locator}</var>
+<arg>xpath=//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-08-10T15:03:40.117402" elapsed="0.000996"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:40.119403" level="INFO">Executing JavaScript:
+document.evaluate("//div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();
+Without any arguments.</msg>
+<arg>document.evaluate("//div[text()='${item_name}']/ancestor::div[@class='inventory_item']//button", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:40.118398" elapsed="0.016427"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-08-10T15:03:40.436270" level="INFO">Slept 300 milliseconds.</msg>
+<arg>0.3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-08-10T15:03:40.135825" elapsed="0.300445"/>
+</kw>
+<arg>Sauce Labs Backpack</arg>
+<doc>Locates item by name and clicks its Add to cart button.</doc>
+<status status="PASS" start="2026-08-10T15:03:40.116405" elapsed="0.319865"/>
+</kw>
+<kw name="Proceed To Checkout" owner="common">
+<kw name="Navigate To Cart" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:40.438340" level="INFO">Executing JavaScript:
+document.querySelector('.shopping_cart_link').click();
+Without any arguments.</msg>
+<arg>document.querySelector('.shopping_cart_link').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:40.437332" elapsed="0.021075"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>cart.html</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:40.458407" elapsed="0.019176"/>
+</kw>
+<doc>Clicks the shopping cart icon and waits for cart page to load.</doc>
+<status status="PASS" start="2026-08-10T15:03:40.437332" elapsed="0.040251"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>id=checkout</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-08-10T15:03:40.477583" elapsed="0.020089"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:40.499682" level="INFO">Executing JavaScript:
+document.getElementById('checkout').click();
+Without any arguments.</msg>
+<arg>document.getElementById('checkout').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:40.498675" elapsed="0.023478"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>checkout-step-one.html</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:40.522153" elapsed="0.015832"/>
+</kw>
+<doc>Navigates from cart to checkout step 1.</doc>
+<status status="PASS" start="2026-08-10T15:03:40.436270" elapsed="0.101715"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:40.538982" level="INFO">Executing JavaScript:
+document.getElementById('cancel').click();
+Without any arguments.</msg>
+<arg>document.getElementById('cancel').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:40.538982" elapsed="0.019592"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>cart.html</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:40.558574" elapsed="0.011956"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-08-10T15:03:40.571533" elapsed="2.437104"/>
+</kw>
+<doc>Closes the active browser session.</doc>
+<status status="PASS" start="2026-08-10T15:03:40.570530" elapsed="2.439109"/>
+</kw>
+<doc>FR-13: Cancelling checkout returns user cleanly to cart.</doc>
+<tag>checkout</tag>
+<status status="PASS" start="2026-08-10T15:03:37.990813" elapsed="5.018826"/>
+</test>
+<test id="s1-t14" name="TC-14: Verify Secure User Logout" line="139">
+<kw name="Open SauceDemo In Browser" owner="common" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:43.012282" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${BASE_URL}</arg>
+<arg>headlesschrome</arg>
+<arg>options=add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--window-size=1920,1080")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-08-10T15:03:43.011230" elapsed="1.829950"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2026-08-10T15:03:44.842182" elapsed="0.002541"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2026-08-10T15:03:44.844723" elapsed="0.000000"/>
+</kw>
+<doc>Opens the SauceDemo application in Chrome headless mode.</doc>
+<status status="PASS" start="2026-08-10T15:03:43.010709" elapsed="1.835014"/>
+</kw>
+<kw name="Login As Standard User" owner="common">
+<kw name="Login To Application" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:44.847723" level="INFO">Executing JavaScript:
+function setVal(id, v) {let el = document.getElementById(id);let last = el.value;el.value = v;if (el._valueTracker) el._valueTracker.setValue(last);el.dispatchEvent(new Event('input', { bubbles: true }));}setVal('user-name', 'standard_user');setVal('password', 'secret_sauce');
+Without any arguments.</msg>
+<arg>function setVal(id, v) {</arg>
+<arg>let el = document.getElementById(id);</arg>
+<arg>let last = el.value;</arg>
+<arg>el.value = v;</arg>
+<arg>if (el._valueTracker) el._valueTracker.setValue(last);</arg>
+<arg>el.dispatchEvent(new Event('input', { bubbles: true }));</arg>
+<arg>}</arg>
+<arg>setVal('user-name', '${username}');</arg>
+<arg>setVal('password', '${password}');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:44.847723" elapsed="0.021088"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:44.869818" level="INFO">Executing JavaScript:
+document.getElementById('login-button').click();
+Without any arguments.</msg>
+<arg>document.getElementById('login-button').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:44.868811" elapsed="0.133508"/>
+</kw>
+<arg>${VALID_USER}</arg>
+<arg>${VALID_PASSWORD}</arg>
+<doc>Enters credentials and submits the login form.</doc>
+<status status="PASS" start="2026-08-10T15:03:44.846728" elapsed="0.155591"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>inventory.html</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:45.002319" elapsed="0.024418"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${PAGE_TITLE}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-08-10T15:03:45.026737" elapsed="0.015557"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:45.042806" level="INFO">Verifying element 'class=title' contains exact text 'Products'.</msg>
+<arg>${PAGE_TITLE}</arg>
+<arg>Products</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2026-08-10T15:03:45.042806" elapsed="0.030599"/>
+</kw>
+<doc>Performs successful login using standard credentials.</doc>
+<status status="PASS" start="2026-08-10T15:03:44.846728" elapsed="0.226677"/>
+</kw>
+<kw name="Logout From Application" owner="common">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:45.074419" level="INFO">Executing JavaScript:
+document.getElementById('react-burger-menu-btn').click();
+Without any arguments.</msg>
+<arg>document.getElementById('react-burger-menu-btn').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:45.074419" elapsed="0.009508"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-08-10T15:03:45.585144" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-08-10T15:03:45.084935" elapsed="0.500209"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:45.585144" level="INFO">Executing JavaScript:
+document.getElementById('logout_sidebar_link').click();
+Without any arguments.</msg>
+<arg>document.getElementById('logout_sidebar_link').click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-08-10T15:03:45.585144" elapsed="0.011529"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-08-10T15:03:45.596673" elapsed="0.012520"/>
+</kw>
+<doc>Opens sidebar and performs logout.</doc>
+<status status="PASS" start="2026-08-10T15:03:45.073405" elapsed="0.535788"/>
+</kw>
+<kw name="Location Should Be" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:45.616731" level="INFO">Current location is 'https://www.saucedemo.com/'.</msg>
+<arg>${BASE_URL}</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<status status="PASS" start="2026-08-10T15:03:45.609193" elapsed="0.008536"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-08-10T15:03:45.623243" level="INFO">Current page contains element 'id=login-button'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-08-10T15:03:45.617729" elapsed="0.006514"/>
+</kw>
+<kw name="Close Test Browser" owner="common" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-08-10T15:03:45.624243" elapsed="2.136494"/>
+</kw>
+<doc>Closes the active browser session.</doc>
+<status status="PASS" start="2026-08-10T15:03:45.624243" elapsed="2.136494"/>
+</kw>
+<doc>FR-14: User logout securely ends session and returns to login page.</doc>
+<tag>auth</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2026-08-10T15:03:43.010202" elapsed="4.750535"/>
+</test>
+<doc>Robot Framework Test Suite covering Functional Test Cases TC-01 through TC-14.
+Course: CST8513 - Quality Assurance and Testing (Assignment III)
+Students: Devangbhai Pandit &amp; Meet Ahalpara</doc>
+<status status="PASS" start="2026-08-10T15:02:44.057450" elapsed="63.704231"/>
+</suite>
+<statistics>
+<total>
+<stat pass="14" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="3" fail="0" skip="0">auth</stat>
+<stat pass="3" fail="0" skip="0">cart</stat>
+<stat pass="5" fail="0" skip="0">checkout</stat>
+<stat pass="3" fail="0" skip="0">inventory</stat>
+<stat pass="3" fail="0" skip="0">negative</stat>
+<stat pass="4" fail="0" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat name="Saucedemo Suite" id="s1" pass="14" fail="0" skip="0">Saucedemo Suite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
