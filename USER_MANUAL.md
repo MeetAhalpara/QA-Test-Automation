@@ -1,27 +1,28 @@
-# 📖 CST8513 Assignment III - Complete User & Tester Manual
+# CST8513 Assignment III - Complete User & Tester Manual
 
-**Target Application:** [SauceDemo (Swag Labs)](https://www.saucedemo.com/)  
+**Target Application:** SauceDemo (Swag Labs) - https://www.saucedemo.com/  
 **Authors:** Devangbhai Pandit & Meet Ahalpara  
 **Professor:** Prof. Sharmista Datta  
 **Course:** CST8513 – Quality Assurance and Testing (Summer 2026)  
 **Institution:** Algonquin College – School of Advanced Technology  
+**GitHub Repository:** https://github.com/MeetAhalpara/QA-Test-Automation  
 
 ---
 
-## 🎯 Welcome, Devang! (Quick Overview)
+## 1. Quick Overview for Devang
 
-This manual will walk you through setting up, running, testing, and verifying everything in this test automation repository on any computer in **under 3 minutes**.
+This manual walks you through setting up, running, testing, and verifying everything in this test automation repository on any computer in under 3 minutes.
 
-### 🌟 What this project includes:
-1. **Selenium WebDriver Test Suite (Python + Pytest)** with **Page Object Model (POM)** architecture covering all 14 functional requirements (`TC-01` to `TC-14` + parameter variations + full E2E workflow).
+### Key Components:
+1. **Selenium WebDriver Test Suite (Python 3.11 + Pytest)** with Page Object Model (POM) architecture covering all 14 functional requirements (`TC-01` to `TC-14` + parameter variations + full E2E workflow).
 2. **Robot Framework Test Suite** using high-level keyword abstractions and SeleniumLibrary.
 3. **Automated Visual HTML & XML Reports** generated directly into `reports/`.
-4. **Continuous Integration (CI/CD)** pipelines for **Jenkins** (`ci_cd/Jenkinsfile`) and **GitHub Actions** (`.github/workflows/automation-tests.yml`).
+4. **Continuous Integration (CI/CD)** pipelines for Jenkins (`ci_cd/Jenkinsfile`) and GitHub Actions (`.github/workflows/automation-tests.yml`).
 5. **All Project Documentation** and Word reports (`.docx`) in `Docs/`.
 
 ---
 
-## 🚀 1. Fast Setup (One-Time Setup)
+## 2. Fast Setup (One-Time Setup)
 
 ### Step 1: Open the Project in VS Code / Terminal
 Open your terminal (PowerShell, Command Prompt, or VS Code Terminal) in the `Assignment3` folder:
@@ -56,9 +57,9 @@ python -c "import pypandoc; pypandoc.download_pandoc()"
 
 ---
 
-## 🧪 2. How to Run the Automated Tests
+## 3. How to Run the Automated Tests
 
-### Option A: Watch the Browser Open & Click on Screen (Visual Headed Mode - BEST FOR DEMOS!)
+### Option A: Watch the Browser Open & Click on Screen (Visual Headed Mode - BEST FOR DEMOS)
 To watch Google Chrome launch, type credentials, click buttons, add items to cart, and finish orders live on your screen:
 
 ```powershell
@@ -68,10 +69,10 @@ python -m pytest automation_selenium/tests/ --headed -v
 ---
 
 ### Option B: Run All Test Suites & Generate Reports with 1 Command (Unified Test Runner)
-To run both the **Selenium (POM)** suite (22 scenarios) and the **Robot Framework** suite (14 scenarios) in the background and generate all reports:
+To run both the Selenium (POM) suite (22 scenarios) and the Robot Framework suite (14 scenarios) in the background and generate all reports:
 
 ```powershell
-python run_tests.py
+python run_tests.py --suite all
 ```
 
 ---
@@ -118,7 +119,7 @@ python -m robot --outputdir reports/robot_logs automation_robot/tests/saucedemo_
 
 ---
 
-## 📊 3. How to View the Test Reports
+## 4. How to View the Test Reports
 
 After running the tests, open the generated HTML reports in your web browser:
 
@@ -137,19 +138,21 @@ After running the tests, open the generated HTML reports in your web browser:
 
 ---
 
-## 🗂️ 4. Where to Find Everything in the Project
+## 5. Where to Find Everything in the Project
 
 ```
 Assignment3/
 ├── Docs/                                       # Official assignment submissions & Word documents
-│   ├── Project 3 - Final Automation Test Report - Devangbhai & Meet.docx  <-- DELIVERABLE 3 (Word)
-│   ├── FINAL_AUTOMATION_TEST_REPORT.md         <-- DELIVERABLE 3 (Markdown source)
+│   ├── Project 3 - Automated Test Scripts - Devangbhai & Meet.docx  <-- DELIVERABLE 1 (Word)
+│   ├── AUTOMATED_TEST_SCRIPTS.md               <-- DELIVERABLE 1 (Markdown source)
 │   ├── Project 3 - Defects and Discrepancies Report - Devangbhai & Meet.docx <-- DELIVERABLE 2 (Word)
 │   ├── DISCREPANCIES_REPORT.md                 <-- DELIVERABLE 2 (Markdown source)
+│   ├── Project 3 - Final Automation Test Report - Devangbhai & Meet.docx  <-- DELIVERABLE 3 (Word)
+│   ├── FINAL_AUTOMATION_TEST_REPORT.md         <-- DELIVERABLE 3 (Markdown source)
 │   ├── Assignment III.docx                     <-- Course Assignment Instructions
 │   ├── Project 1 - QAQT Devangbhai & Meet.docx <-- Phase 1 Proposal
 │   ├── Project 2 - Test Cases - Devangbhai & Meet.docx <-- Phase 2 Manual Test Cases
-│   ├── Project 2 - DefectsReport - Devangbhai & Meet.docx <-- Phase 2 Defect Report (D-01, D-02)
+│   ├── Project 2 - DefectsReport - Devangbhai & Meet.docx <-- Phase 2 Defect Report
 │   └── Project 2 - Final Test Report - Devangbhai & Meet.docx <-- Phase 2 Final Report
 │
 ├── automation_selenium/                        # DELIVERABLE 1: Selenium WebDriver POM Framework
@@ -187,30 +190,28 @@ Assignment3/
 ├── reports/                                    # Generated Reports Directory
 │   ├── selenium_test_report.html               # Visual HTML test report
 │   ├── junit_selenium.xml                      # JUnit XML artifact
-│   ├── screenshots/                            # Failure screenshots
 │   └── robot_logs/                             # Robot Framework report.html & log.html
 │
 ├── run_tests.py                                # Single CLI test runner script
 ├── pytest.ini                                  # Pytest configuration & markers
 ├── requirements.txt                            # Python dependencies
-├── NOTES.txt                                   # Quick project notes & Q&A
-├── USER_MANUAL.md                              # This manual file!
+├── USER_MANUAL.md                              # This manual file
 └── README.md                                   # GitHub repository overview
 ```
 
 ---
 
-## 📝 5. How to Re-generate Word Documents (.docx) with `pypandoc`
+## 6. How to Re-generate Word Documents (.docx) with `pypandoc`
 
 If you make any changes to the markdown files in `Docs/` and want to update the Word documents (`.docx`), run this single command:
 
 ```powershell
-python -c "import pypandoc; pypandoc.convert_file('Docs/FINAL_AUTOMATION_TEST_REPORT.md', 'docx', outputfile='Docs/Project 3 - Final Automation Test Report - Devangbhai & Meet.docx'); pypandoc.convert_file('Docs/DISCREPANCIES_REPORT.md', 'docx', outputfile='Docs/Project 3 - Defects and Discrepancies Report - Devangbhai & Meet.docx'); print('All Word documents updated successfully!')"
+python -c "import pypandoc; pypandoc.convert_file('Docs/AUTOMATED_TEST_SCRIPTS.md', 'docx', outputfile='Docs/Project 3 - Automated Test Scripts - Devangbhai & Meet.docx'); pypandoc.convert_file('Docs/DISCREPANCIES_REPORT.md', 'docx', outputfile='Docs/Project 3 - Defects and Discrepancies Report - Devangbhai & Meet.docx'); pypandoc.convert_file('Docs/FINAL_AUTOMATION_TEST_REPORT.md', 'docx', outputfile='Docs/Project 3 - Final Automation Test Report - Devangbhai & Meet.docx'); print('All Word documents updated successfully!')"
 ```
 
 ---
 
-## 🛠️ 6. Troubleshooting & FAQ
+## 7. Troubleshooting & FAQ
 
 ### Q1: I see `Execution_Policies` error when activating the `.venv` in PowerShell.
 **Fix:** Run this command once in PowerShell:
@@ -222,28 +223,28 @@ Then run `.\.venv\Scripts\Activate.ps1` again.
 ---
 
 ### Q2: Do I need to manually download or update ChromeDriver?
-**Answer:** **No!** Selenium 4 features native **Selenium Manager**, which automatically detects your installed Google Chrome version and downloads the matching driver in the background silently.
+**Answer:** **No.** Selenium 4 features native **Selenium Manager**, which automatically detects your installed Google Chrome version and downloads the matching driver in the background silently.
 
 ---
 
 ### Q3: How do the test cases map from Project 2 (Manual) to Project 3 (Automated)?
-| Test ID | Feature Area | Automated Test Function | Automated Verification |
+| Test ID | Feature Area | Automated Test Function & Code Location | Automated Verification |
 | :--- | :--- | :--- | :--- |
-| **TC-01** | Authentication | `test_tc01_successful_login` | Valid login redirects to `/inventory.html`, catalog loads 6 products |
-| **TC-02** | Authentication | `test_tc02_login_error_validation` | Error banner verified for invalid, locked, and blank credentials |
-| **TC-03** | Inventory Display | `test_tc03_inventory_display` | Exactly 6 items verified with title, image, price, and descriptions |
-| **TC-04** | Sorting | `test_tc04_product_sorting` | Validates all 4 sort options: `A-Z`, `Z-A`, `Low-High`, `High-Low` |
-| **TC-05** | Product Details | `test_tc05_product_details_view` | Item page displays title, $29.99 price, image, and back button |
-| **TC-06** | Shopping Cart | `test_tc06_add_to_cart` | Adding items from catalog & details increments cart badge dynamically |
-| **TC-07** | Shopping Cart | `test_tc07_remove_from_cart` | Removing items decrements badge count and updates button state |
-| **TC-08** | Cart Review | `test_tc08_cart_review` | Navigating to `/cart.html` verifies item list, pricing, and continue shopping |
-| **TC-09** | Checkout Info | `test_tc09_checkout_empty_fields_validation` | Submitting empty form blocks checkout with "First Name is required" |
-| **TC-10** | Input Validation | `test_tc10_checkout_input_validation` | Missing last name & postal code triggers specific error messages |
-| **TC-11** | Order Overview | `test_tc11_order_overview_calculations` | Verifies Subtotal ($45.98) + Tax ($3.68) == Total ($49.66) strictly |
-| **TC-12** | Order Complete | `test_tc12_finish_order_confirmation` | Order confirmed with "Thank you for your order!" and pony express badge |
-| **TC-13** | Checkout Cancel | `test_tc13_cancel_checkout_redirection` | Cancelling from Step 1 returns to Cart; Step 2 returns to Inventory |
-| **TC-14** | User Logout | `test_tc14_secure_logout` | Sidebar logout ends session and blocks direct inventory URL access |
-| **E2E** | Full Flow | `test_complete_e2e_shopping_workflow` | Login -> Sort -> Add 3 Items -> Cart -> Checkout -> Overview -> Finish -> Logout |
+| **TC-01** | Authentication | `test_authentication.py: test_tc01_successful_login` | Valid login redirects to `/inventory.html`, catalog loads 6 products |
+| **TC-02** | Authentication | `test_authentication.py: test_tc02_login_error_validation` | Error banner verified for invalid, locked, and blank credentials |
+| **TC-03** | Inventory Display | `test_inventory.py: test_tc03_inventory_display` | Exactly 6 items verified with title, image, price, and descriptions |
+| **TC-04** | Sorting | `test_inventory.py: test_tc04_product_sorting` | Validates all 4 sort options: `A-Z`, `Z-A`, `Low-High`, `High-Low` |
+| **TC-05** | Product Details | `test_inventory.py: test_tc05_product_details_view` | Item page displays title, $29.99 price, image, and back button |
+| **TC-06** | Shopping Cart | `test_cart.py: test_tc06_add_to_cart` | Adding items from catalog & details increments cart badge dynamically |
+| **TC-07** | Shopping Cart | `test_cart.py: test_tc07_remove_from_cart` | Removing items decrements badge count and updates button state |
+| **TC-08** | Cart Review | `test_cart.py: test_tc08_cart_review` | Navigating to `/cart.html` verifies item list, pricing, and continue shopping |
+| **TC-09** | Checkout Info | `test_checkout.py: test_tc09_checkout_empty_fields_validation` | Submitting empty form blocks checkout with "First Name is required" |
+| **TC-10** | Input Validation | `test_checkout.py: test_tc10_checkout_input_validation` | Missing last name & postal code triggers specific error messages |
+| **TC-11** | Order Overview | `test_checkout.py: test_tc11_order_overview_calculations` | Verifies Subtotal ($45.98) + Tax ($3.68) == Total ($49.66) strictly |
+| **TC-12** | Order Complete | `test_checkout.py: test_tc12_finish_order_confirmation` | Order confirmed with "Thank you for your order!" and pony express badge |
+| **TC-13** | Checkout Cancel | `test_checkout.py: test_tc13_cancel_checkout_redirection` | Cancelling from Step 1 returns to Cart; Step 2 returns to Inventory |
+| **TC-14** | User Logout | `test_authentication.py: test_tc14_secure_logout` | Sidebar logout ends session and blocks direct inventory URL access |
+| **E2E** | Full Flow | `test_e2e_workflow.py: test_complete_e2e_shopping_workflow` | Login -> Sort -> Add 3 Items -> Cart -> Checkout -> Overview -> Finish -> Logout |
 
 ---
 *Created for Devangbhai Pandit & Meet Ahalpara | CST8513 Quality Assurance and Testing | Algonquin College*

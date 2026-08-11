@@ -1,40 +1,57 @@
 # CST8513: Quality Assurance and Testing - Assignment III (Automation Testing)
 
 **Course:** CST8513 - Quality Assurance and Testing (Summer 2026)  
-**Target Application:** [SauceDemo (Swag Labs)](https://www.saucedemo.com/)  
+**Target Application:** SauceDemo (Swag Labs) - https://www.saucedemo.com/  
 **Authors:** Devangbhai Pandit & Meet Ahalpara  
 **Professor:** Prof. Sharmista Datta  
 **Institution:** Algonquin College – School of Advanced Technology  
+**GitHub Repository:** https://github.com/MeetAhalpara/QA-Test-Automation  
 
 ---
 
-## 🚀 Quick Links & User Guide
-- 📖 **[Comprehensive User & Tester Manual](USER_MANUAL.md)** *(Step-by-step testing guide for Devang and the team)*
-- 📄 **[Deliverable 3: Final Automation Test Report (DOCX)](Docs/Project%203%20-%20Final%20Automation%20Test%20Report%20-%20Devangbhai%20%26%20Meet.docx)** | **[(Markdown)](Docs/FINAL_AUTOMATION_TEST_REPORT.md)**
-- 📄 **[Deliverable 2: Defects & Discrepancies Report (DOCX)](Docs/Project%203%20-%20Defects%20and%20Discrepancies%20Report%20-%20Devangbhai%20%26%20Meet.docx)** | **[(Markdown)](Docs/DISCREPANCIES_REPORT.md)**
-- 🌐 **[Interactive Selenium HTML Report](reports/selenium_test_report.html)**
-- 🌐 **[Robot Framework HTML Report](reports/robot_logs/report.html)**
-- 📝 **[Project Notes & Q&A](NOTES.txt)**
+## 1. Project Documentation & Deliverables
+
+All three required deliverables are located in the `Docs/` directory as both formal Microsoft Word documents (`.docx`) and Markdown documents (`.md`):
+
+1. **Deliverable 1: Automated Test Scripts (with Comments & POM Architecture)**
+   - Word Document: `Docs/Project 3 - Automated Test Scripts - Devangbhai & Meet.docx`
+   - Markdown Source: `Docs/AUTOMATED_TEST_SCRIPTS.md`
+   - Implementation: `automation_selenium/` and `automation_robot/`
+
+2. **Deliverable 2: Defects and Discrepancies Report**
+   - Word Document: `Docs/Project 3 - Defects and Discrepancies Report - Devangbhai & Meet.docx`
+   - Markdown Source: `Docs/DISCREPANCIES_REPORT.md`
+
+3. **Deliverable 3: Final Automation Test Report**
+   - Word Document: `Docs/Project 3 - Final Automation Test Report - Devangbhai & Meet.docx`
+   - Markdown Source: `Docs/FINAL_AUTOMATION_TEST_REPORT.md`
+
+4. **User & Tester Manual:**
+   - Markdown Manual: `USER_MANUAL.md`
+
+5. **Visual Test Reports:**
+   - Selenium Pytest Report: `reports/selenium_test_report.html`
+   - Robot Framework Report: `reports/robot_logs/report.html`
 
 ---
 
-## 📌 Project Overview
+## 2. Project Overview
 
-This repository contains the complete automated regression testing framework for **Assignment III (Phase 3: Automation Testing)** of the CST8513 Quality Assurance and Testing course. The project transitions manual functional test cases (`TC-01` through `TC-14` mapping to requirements `FR-01` through `FR-14`) into automated test scripts using the **Page Object Model (POM)** design pattern.
+This repository contains the complete automated regression testing framework for Assignment III (Phase 3: Automation Testing) in CST8513. The project transitions manual functional test cases (`TC-01` through `TC-14` mapping to requirements `FR-01` through `FR-14`) into automated test scripts using the Page Object Model (POM) design pattern.
 
 ### Key Highlights:
-- **Selenium WebDriver (Python + Pytest)** with complete Page Object Model architecture.
+- **Selenium WebDriver (Python 3.11 + Pytest)** with complete Page Object Model architecture.
 - **Robot Framework Test Suite** with reusable keyword abstractions and SeleniumLibrary.
-- **Continuous Integration (CI/CD)** pipeline configuration for both **Jenkins** (`ci_cd/Jenkinsfile`) and **GitHub Actions** (`.github/workflows/automation-tests.yml`).
+- **Continuous Integration (CI/CD)** pipeline configuration for both Jenkins (`ci_cd/Jenkinsfile`) and GitHub Actions (`.github/workflows/automation-tests.yml`).
 - **Comprehensive Reports**: Self-contained HTML test reports, JUnit XML artifacts, and failure screenshots.
 - **100% Test Pass Rate**: All 22 Selenium test scenarios and all 14 Robot Framework test cases pass consistently.
-- **89.8% Time Reduction**: Regression test execution time dropped from 18 minutes (manual) to **1 minute 50 seconds (automated)**.
+- **89.8% Time Reduction**: Regression test execution time dropped from 18 minutes (manual) to 1 minute 50 seconds (automated).
 
 ---
 
-## ⚡ Quick Start: How to Run the Tests (Under 2 Minutes)
+## 3. Quick Start: How to Run the Tests
 
-### 1. Activate the Virtual Environment
+### Step 1: Activate the Virtual Environment
 Open your terminal in this directory (`Assignment3`):
 
 - **PowerShell (VS Code default):**
@@ -50,7 +67,7 @@ Open your terminal in this directory (`Assignment3`):
 
 ---
 
-### 2. Run Test Commands
+### Step 2: Run Test Commands
 
 #### A. Watch the Browser Open & Click on Screen (Visual Headed Mode):
 ```powershell
@@ -59,7 +76,7 @@ python -m pytest automation_selenium/tests/ --headed -v
 
 #### B. Run the Unified Test Runner (Selenium + Robot + Generates Reports):
 ```powershell
-python run_tests.py
+python run_tests.py --suite all
 ```
 
 #### C. Run a Specific Test Category:
@@ -87,28 +104,30 @@ python -m robot --outputdir reports/robot_logs automation_robot/tests/saucedemo_
 
 ---
 
-## 🏗️ Architecture & Page Object Model (POM) Structure
+## 4. Architecture & Page Object Model (POM) Structure
 
-The framework strictly follows the **Page Object Model** design pattern, decoupling element locators and UI interaction logic from test assertions.
+The framework strictly follows the Page Object Model design pattern, decoupling element locators and UI interaction logic from test assertions.
 
 ```
 Assignment3/
 ├── Docs/                                       # Project documentation & requirements
-│   ├── Project 3 - Final Automation Test Report - Devangbhai & Meet.docx  <-- DELIVERABLE 3 (Word)
-│   ├── FINAL_AUTOMATION_TEST_REPORT.md         <-- DELIVERABLE 3 (Markdown source)
+│   ├── Project 3 - Automated Test Scripts - Devangbhai & Meet.docx  <-- DELIVERABLE 1 (Word)
+│   ├── AUTOMATED_TEST_SCRIPTS.md               <-- DELIVERABLE 1 (Markdown source)
 │   ├── Project 3 - Defects and Discrepancies Report - Devangbhai & Meet.docx <-- DELIVERABLE 2 (Word)
 │   ├── DISCREPANCIES_REPORT.md                 <-- DELIVERABLE 2 (Markdown source)
+│   ├── Project 3 - Final Automation Test Report - Devangbhai & Meet.docx  <-- DELIVERABLE 3 (Word)
+│   ├── FINAL_AUTOMATION_TEST_REPORT.md         <-- DELIVERABLE 3 (Markdown source)
 │   ├── Assignment III.docx                     <-- Course Assignment Instructions
 │   ├── Project 1 - QAQT Devangbhai & Meet.docx <-- Phase 1 Proposal
 │   ├── Project 2 - Test Cases - Devangbhai & Meet.docx <-- Phase 2 Manual Test Cases
-│   ├── Project 2 - DefectsReport - Devangbhai & Meet.docx <-- Phase 2 Defect Report (D-01, D-02)
+│   ├── Project 2 - DefectsReport - Devangbhai & Meet.docx <-- Phase 2 Defect Report
 │   └── Project 2 - Final Test Report - Devangbhai & Meet.docx <-- Phase 2 Final Report
 │
-├── automation_selenium/                        # DELIVERABLE 1: Selenium WebDriver Framework (Python + Pytest)
+├── automation_selenium/                        # Selenium WebDriver Framework (Python + Pytest)
 │   ├── config/
 │   │   └── config.py                           # App URLs, user credentials, timeouts, paths
 │   ├── pages/                                  # Page Object Model (POM) Page Classes
-│   │   ├── base_page.py                        # Common wrapper (waits, clicks, React sync, screenshots)
+│   │   ├── base_page.py                        # Common wrapper (waits, clicks, React sync)
 │   │   ├── login_page.py                       # Login interface & credential validations (FR-01, FR-02)
 │   │   ├── inventory_page.py                   # Catalog grid, sorting & cart badge (FR-03, FR-04, FR-06)
 │   │   ├── product_details_page.py             # Single item specifications & back navigation (FR-05)
@@ -138,19 +157,17 @@ Assignment3/
 ├── reports/                                    # Generated test artifacts & reports
 │   ├── selenium_test_report.html               # Pytest HTML visual report
 │   ├── junit_selenium.xml                      # JUnit XML test result format
-│   ├── screenshots/                            # Failure screenshots directory
 │   └── robot_logs/                             # Robot Framework report.html & log.html
 │
 ├── run_tests.py                                # Unified test runner CLI
 ├── pytest.ini                                  # Pytest configuration, CLI flags, markers
 ├── requirements.txt                            # Python dependencies
-├── NOTES.txt                                   # Detailed course and project notes
 └── USER_MANUAL.md                              # Complete Step-by-Step User & Tester Manual
 ```
 
 ---
 
-## 📋 Test Traceability Matrix (TC-01 through TC-14)
+## 5. Test Traceability Matrix (TC-01 through TC-14)
 
 | Test ID | FR ID | Feature Area | Automated Test Method | Automated Verification |
 | :--- | :--- | :--- | :--- | :--- |
@@ -172,12 +189,21 @@ Assignment3/
 
 ---
 
-## 🔄 Re-generating Word Documents (.docx) with `pypandoc`
+## 6. Re-generating Word Documents (.docx) with `pypandoc`
 
 If you make edits to the Markdown files in `Docs/` and want to update the `.docx` documents, run:
 ```powershell
-python -c "import pypandoc; pypandoc.convert_file('Docs/FINAL_AUTOMATION_TEST_REPORT.md', 'docx', outputfile='Docs/Project 3 - Final Automation Test Report - Devangbhai & Meet.docx'); pypandoc.convert_file('Docs/DISCREPANCIES_REPORT.md', 'docx', outputfile='Docs/Project 3 - Defects and Discrepancies Report - Devangbhai & Meet.docx'); print('Word documents updated!')"
+python -c "import pypandoc; pypandoc.convert_file('Docs/AUTOMATED_TEST_SCRIPTS.md', 'docx', outputfile='Docs/Project 3 - Automated Test Scripts - Devangbhai & Meet.docx'); pypandoc.convert_file('Docs/DISCREPANCIES_REPORT.md', 'docx', outputfile='Docs/Project 3 - Defects and Discrepancies Report - Devangbhai & Meet.docx'); pypandoc.convert_file('Docs/FINAL_AUTOMATION_TEST_REPORT.md', 'docx', outputfile='Docs/Project 3 - Final Automation Test Report - Devangbhai & Meet.docx'); print('All Word deliverables updated successfully!')"
 ```
+
+---
+
+## 7. Technical References
+1. **Selenium Documentation:** https://www.selenium.dev/documentation/
+2. **Pytest Framework Documentation:** https://docs.pytest.org/
+3. **Robot Framework User Guide:** https://robotframework.org/
+4. **Target Test Site:** https://www.saucedemo.com/
+5. **Project Source Repository:** https://github.com/MeetAhalpara/QA-Test-Automation
 
 ---
 *Created for Devangbhai Pandit & Meet Ahalpara | CST8513 Quality Assurance and Testing | Algonquin College*
