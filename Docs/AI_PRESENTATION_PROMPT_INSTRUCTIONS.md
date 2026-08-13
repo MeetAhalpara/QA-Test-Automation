@@ -1,14 +1,27 @@
-# Detailed Master Prompt & Instructions for AI Slide Generators
+# Master Prompt & AI Image Generation Instructions for Gamma AI & Slide Generators
 ## Project: CST8513 Quality Assurance & Testing - Final Presentation (Project I, II, & III Synthesis)
 
-**Target Use Case:** Copy and paste the prompt below into any AI Presentation Generator (Gamma AI, Beautiful.ai, ChatGPT Plus / Canvas, Claude 3.5, Tome, Canva AI, or PowerPoint Copilot) to generate a high-end presentation deck.
+**Target Platform:** [Gamma.app](https://gamma.app) (also compatible with Midjourney, DALL-E 3, Beautiful.ai, Tome, ChatGPT Plus, and Canva AI).
 
 ---
 
-### Master AI Prompt (Copy-Paste Ready)
+## 📸 Gamma AI Image Generation Setup Instructions
+
+When using Gamma AI (https://gamma.app):
+1. Select **"Create with AI"** -> **"Paste in text"**.
+2. Set **Card Count** to **14 Cards** (Widescreen 16:9).
+3. Under **Image Settings**, select:
+   - **Image Style:** `Minimalist Tech` / `Modern Photorealistic Corporate` / `3D Tech Illustration`.
+   - **Image Generation Model:** `FLUX` or `DALL-E 3` (Gamma's default).
+   - **Image Frequency:** `1 image per card` (Right-side or Header banner container).
+4. Paste the complete Master Prompt below. Gamma AI will automatically parse the card content AND generate matching high-end AI visuals for each slide using the embedded `[AI IMAGE PROMPT]` tags!
+
+---
+
+### Master AI Prompt (Copy-Paste Ready into Gamma AI)
 
 ```text
-You are an expert Presentation Design & QA Engineering AI. Generate a professional, highly readable 14-slide presentation deck based on the detailed project specifications below.
+You are an expert Presentation Design & QA Engineering AI. Generate a professional, highly readable 14-slide presentation deck based on the detailed project specifications below. For each slide, include the requested content AND generate the matching AI visual using the provided AI IMAGE PROMPT instruction.
 
 ### Presentation Context & Rules:
 1. Submission & Presentation Date: August 13, 2026
@@ -19,13 +32,14 @@ You are an expert Presentation Design & QA Engineering AI. Generate a profession
 6. Professor: Prof. Sharmista Datta
 7. Course: CST8513 – Quality Assurance and Testing (Algonquin College – School of Advanced Technology)
 8. Target Application: SauceDemo (Swag Labs e-commerce) - https://www.saucedemo.com/
-9. Design Style: Clean academic / enterprise QA theme. Palette: Navy Blue (#003366), Teal Accent (#008080), Dark Slate (#222222), and Light Gray containers (#F4F6F9). NO random emojis or clipart.
+9. Visual Theme: Sleek corporate tech theme. Color Palette: Navy Blue (#003366), Teal Accent (#008080), Dark Slate (#222222), and Soft Gray containers (#F4F6F9). NO cheesy clipart or random emojis.
 
 ---
 
-### SLIDE-BY-SLIDE CONTENT STRUCTURE:
+### SLIDE-BY-SLIDE CONTENT & AI IMAGE PROMPTS:
 
 #### SLIDE 1: Title Slide
+- [AI IMAGE PROMPT]: A sleek 3D render of a futuristic software quality assurance shield and laptop displaying glowing green code pass badges, navy blue background, modern tech aesthetic, 8k resolution.
 - Title: SauceDemo Test Automation & Quality Assurance Project
 - Subtitle: Comprehensive Synthesis of Project I, Project II & Project III (Automation & CI/CD)
 - Metadata: CST8513 – Quality Assurance and Testing | Prof. Sharmista Datta | August 13, 2026
@@ -34,6 +48,7 @@ You are an expert Presentation Design & QA Engineering AI. Generate a profession
 - Speaker Notes: Good morning/afternoon Professor Datta and classmates. Today Devangbhai and I are presenting our complete Quality Assurance project for SauceDemo, covering our end-to-end journey across Phase 1 Proposal, Phase 2 Manual Testing, and Phase 3 Automated Testing.
 
 #### SLIDE 2: Executive Summary & Project Progression
+- [AI IMAGE PROMPT]: A 3-step digital roadmap diagram showing software evolution from manual testing checklist to automated testing robot to cloud CI/CD server, teal and navy gradient, ultra-clean UI style.
 - Layout: 3 Side-by-Side Phase Cards
 - Card 1 (Phase 1 Scope): Analyzed SauceDemo e-commerce architecture. Defined 14 Core Functional Requirements (FR-01 to FR-14) covering Auth, Catalog, Sorting, Cart, Checkout Math, & Logout.
 - Card 2 (Phase 2 Manual Testing): Executed 14 manual test cases (TC-01 to TC-14). Achieved 85.7% Manual Pass Rate. Documented 2 Defects: D-01 (Empty Cart Checkout) & D-02 (Weak Input Rules).
@@ -41,6 +56,7 @@ You are an expert Presentation Design & QA Engineering AI. Generate a profession
 - Speaker Notes: This slide shows our 3-phase journey. In Phase 1 we mapped requirements, in Phase 2 we manually found defects, and in Phase 3 we turned those manual tests into a fully automated CI/CD pipeline running in under 2 minutes.
 
 #### SLIDE 3: Project I Summary – Requirements Analysis & Scope
+- [AI IMAGE PROMPT]: A modern e-commerce website interface mockup on a tablet screen showing product grid, shopping cart icon, and secure checkout badge, clean minimalist corporate style.
 - Layout: 2 Column Container (FR-01 to FR-07 vs FR-08 to FR-14)
 - Left Column (Auth & Catalog):
   - FR-01: Valid standard_user authentication & redirection to /inventory.html.
@@ -61,6 +77,7 @@ You are an expert Presentation Design & QA Engineering AI. Generate a profession
 - Speaker Notes: In Project I, we thoroughly analyzed SauceDemo and established 14 functional requirements covering the end-to-end e-commerce purchasing workflow from authentication to order confirmation.
 
 #### SLIDE 4: Project II Summary – Manual Testing Strategy
+- [AI IMAGE PROMPT]: A professional QA tester analyzing web application screens on multiple monitors, notebook with checklist on desk, soft studio lighting, corporate office environment.
 - Title: Project II Summary: Manual Functional Testing Strategy
 - Bullet Points:
   - 1-to-1 Traceability Mapping: Authored 14 detailed manual test cases (TC-01 to TC-14) corresponding directly to functional requirements FR-01 to FR-14.
@@ -70,6 +87,7 @@ You are an expert Presentation Design & QA Engineering AI. Generate a profession
 - Speaker Notes: In Project II, we manually executed all 14 test cases. While manual testing allowed us to explore the UI, it required 18 full minutes of active human interaction for a single test cycle.
 
 #### SLIDE 5: Project II Findings – Manual Results & Defect Reporting
+- [AI IMAGE PROMPT]: 3D illustration of a red bug icon and warning sign next to a digital shopping cart with zero items, dark slate background, high contrast QA defect visual.
 - Layout: 2 Defect Cards (Red Header for High, Amber Header for Medium)
 - Card 1 (DEFECT D-01 - SEVERITY: HIGH):
   - Title: Empty Cart Checkout Allowed
@@ -86,6 +104,7 @@ You are an expert Presentation Design & QA Engineering AI. Generate a profession
 - Speaker Notes: Manual testing uncovered 2 key application defects: D-01, where an empty cart can proceed to checkout, and D-02, where checkout forms accept single-character inputs. These formed our baseline for Phase 3 automation.
 
 #### SLIDE 6: Project III Summary – Automation Strategy & Tech Stack
+- [AI IMAGE PROMPT]: A developer dual-monitor desk setup displaying Python code, Selenium logo, and Robot Framework syntax, glowing cyan and teal accents, modern software development studio.
 - Title: Project III Summary: Test Automation Strategy & Tech Stack
 - Bullet Points:
   - Python 3.11: Primary programming language selected for high readability, rich testing ecosystem, and seamless CI/CD integration.
@@ -97,6 +116,7 @@ You are an expert Presentation Design & QA Engineering AI. Generate a profession
 - Speaker Notes: For Project III, we selected Python, Selenium WebDriver, Pytest, and Robot Framework. This dual-framework approach gave us both code-based Page Object Model testing and business-readable keyword testing.
 
 #### SLIDE 7: Page Object Model (POM) Architecture
+- [AI IMAGE PROMPT]: A clean 3D isometric diagram showing software design pattern layers: BasePage at the bottom, Page Objects in the middle, and Test Suites at the top, navy and cyan colors.
 - Title: Page Object Model (POM) Architecture Breakdown
 - Bullet Points:
   - 1. BasePage (base_page.py): Foundation parent class containing explicit waits (WebDriverWait), safe JavaScript clicks, React event dispatching, and screenshot capture.
@@ -106,6 +126,7 @@ You are an expert Presentation Design & QA Engineering AI. Generate a profession
 - Speaker Notes: Our Selenium architecture follows the Page Object Model strictly. Locators are isolated inside Page classes. If an HTML ID changes tomorrow, we update one line in the Page class and zero test files break.
 
 #### SLIDE 8: Project III Execution Results – 100% Pass Rate
+- [AI IMAGE PROMPT]: A digital dashboard display showing 100 percent pass rate green checkmarks, test summary pie charts, and 36 passed test indicators, futuristic corporate UI dashboard.
 - Layout: Summary Table + Bullet Container
 - Table Data:
   - Selenium WebDriver (Pytest): 22 Scenarios | 22 Passed | 0 Failed | 100% Pass Rate | 110.58s
@@ -118,6 +139,7 @@ You are an expert Presentation Design & QA Engineering AI. Generate a profession
 - Speaker Notes: We automated all 14 functional test cases plus negative parameterizations and a full E2E workflow. Both our Selenium and Robot Framework test suites achieved a 100% pass rate across 36 test runs.
 
 #### SLIDE 9: Discrepancies Analysis – Manual vs. Automated
+- [AI IMAGE PROMPT]: A split-screen comparison visual showing a slow analog stopwatch on the left (18 mins) versus a glowing fast digital timer on the right (1 min 50s), high-tech performance comparison.
 - Title: Discrepancies Analysis: Manual vs. Automated Execution
 - Bullet Points:
   - Total Execution Duration: Manual testing required 18 minutes (1,080 seconds) vs. Automation running in 1 minute 50 seconds (110.58 seconds) — an 89.8% reduction in regression time (9.8x faster).
@@ -127,6 +149,7 @@ You are an expert Presentation Design & QA Engineering AI. Generate a profession
 - Speaker Notes: Comparing manual vs automated testing shows an 89.8% time reduction. What took 18 minutes manually now runs automatically in under 2 minutes with zero human effort.
 
 #### SLIDE 10: Technical Discrepancies & Engineering Resolutions
+- [AI IMAGE PROMPT]: A 3D render of puzzle pieces coming together representing technical problem solving in code, React JS logo and DOM nodes connecting seamlessly, cyan and navy lighting.
 - Title: Technical Discrepancies & Engineering Resolutions
 - Bullet Points:
   - 1. React Virtual DOM Mutation (TC-04 Sorting): React unmounts old DOM nodes during re-sorting, causing StaleElementReferenceException. Resolved by evaluating live DOM arrays atomically via JavaScript in BasePage.
@@ -136,6 +159,7 @@ You are an expert Presentation Design & QA Engineering AI. Generate a profession
 - Speaker Notes: Transitioning to automation revealed technical DOM quirks. We resolved React virtual DOM stale element issues and controlled input state desynchronization using custom JavaScript helpers.
 
 #### SLIDE 11: Continuous Integration (CI/CD) Pipelines
+- [AI IMAGE PROMPT]: A futuristic continuous integration pipeline visualization showing code commit triggering Jenkins build server and GitHub Actions automated test runner, network nodes glowing green.
 - Layout: 2 Columns (Jenkins vs GitHub Actions)
 - Left Column (JENKINS PIPELINE - ci_cd/Jenkinsfile):
   - Declarative Multi-Stage Pipeline:
@@ -154,6 +178,7 @@ You are an expert Presentation Design & QA Engineering AI. Generate a profession
 - Speaker Notes: We integrated our automation suite into both Jenkins and GitHub Actions. Every time code is pushed to GitHub, our full regression suite executes automatically and publishes test artifacts.
 
 #### SLIDE 12: Mandatory Live Demonstration Guide
+- [AI IMAGE PROMPT]: A command line terminal window displaying live pytest output with passing green text and Chrome browser opening automatically in the background, sleek dark developer setup.
 - Title: Mandatory Live Demonstration Guide
 - Content Boxes:
   - Step 1: Visual Headed Execution (Watch Chrome Run Live)
@@ -168,6 +193,7 @@ You are an expert Presentation Design & QA Engineering AI. Generate a profession
 - Speaker Notes: Now we will perform our mandatory live demo. First, we will run our tests in headed mode so you can watch Chrome perform actions live. Then we will show our unified runner and interactive HTML test reports.
 
 #### SLIDE 13: Project ROI, Value Delivered & Recommendations
+- [AI IMAGE PROMPT]: A 3D financial and time ROI graph pointing sharply upward, showing automated QA cost savings and software reliability increase, navy blue and gold accents.
 - Title: Project ROI, Value Delivered & Recommendations
 - Bullet Points:
   - 1. Quantifiable ROI: 89.8% time savings on regression testing (reduced from 18 minutes to 1 min 50 seconds), saving significant manual QA hours per release cycle.
@@ -177,6 +203,7 @@ You are an expert Presentation Design & QA Engineering AI. Generate a profession
 - Speaker Notes: The ROI of our automation is clear: 9.8x faster regression testing, 100% repeatability, and immediate CI/CD feedback. We recommend SauceDemo developers fix defects D-01 and D-02 in upcoming releases.
 
 #### SLIDE 14: Conclusion & Q&A
+- [AI IMAGE PROMPT]: A sleek minimalist thank-you screen with GitHub logo, QR code concept, and Algonquin College modern campus backdrop, professional studio lighting.
 - Title: Conclusion & Questions
 - Content:
   - Project Conclusion Summary:
@@ -190,16 +217,8 @@ You are an expert Presentation Design & QA Engineering AI. Generate a profession
 
 ---
 
-### Recommended AI Presentation Platforms & How to Use This Prompt:
-
-1. **Gamma.app (Gamma AI - Recommended for instant visual layout):**
-   - Go to [gamma.app](https://gamma.app).
-   - Click **"Create with AI"** -> **"Paste in text"**.
-   - Paste the Master Prompt above. Gamma will automatically generate a widescreen presentation deck.
-
-2. **ChatGPT / Claude 3.5 (For Marp or VBA Script generation):**
-   - Paste the prompt into ChatGPT or Claude.
-   - Ask: *"Generate a PowerPoint VBA script"* or *"Generate Marp Markdown slides"* to export directly into PowerPoint or PDF.
-
-3. **PowerPoint Copilot / Canva AI:**
-   - In PowerPoint with Copilot enabled, click **"Create presentation from text"** and paste the Master Prompt text.
+### How Image Generation Works in Gamma AI:
+When you paste this text into Gamma.app:
+- Gamma reads the `[AI IMAGE PROMPT]` tag on each card.
+- It passes that prompt directly to **FLUX / Midjourney** to generate a custom 3D / vector tech illustration for that slide.
+- Your presentation deck gets professional visual graphics matching your text content.
