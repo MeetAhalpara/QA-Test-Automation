@@ -5,31 +5,39 @@
 **Authors:** Devangbhai Pandit & Meet Ahalpara  
 **Professor:** Prof. Sharmista Datta  
 **Institution:** Algonquin College – School of Advanced Technology  
+**Presentation & Submission Date:** August 13, 2026  
 **GitHub Repository:** https://github.com/MeetAhalpara/QA-Test-Automation  
 
 ---
 
-## 1. Project Documentation & Deliverables
+## 1. Project Documentation, Reports & Presentation
 
-All three required deliverables are located in the `Docs/` directory as both formal Microsoft Word documents (`.docx`) and Markdown documents (`.md`):
+All course deliverables, reports, and presentation slides are located in `Docs/` in both formal Microsoft formats (`.pptx`, `.docx`, `.pdf`) and Markdown source (`.md`):
 
-1. **Deliverable 1: Automated Test Scripts (with Comments & POM Architecture)**
+1. **Presentation Slides (Mandatory Demo & Project 1, 2, 3 Synthesis - 14 Slides):**
+   - PowerPoint Presentation: `Docs/Project 3 - Final Presentation - Devangbhai & Meet.pptx`
+   - Markdown Source with Speaker Notes: `Docs/PRESENTATION_SLIDES.md`
+
+2. **Deliverable 1: Automated Test Scripts (with Comments & POM Architecture)**
    - Word Document: `Docs/Project 3 - Automated Test Scripts - Devangbhai & Meet.docx`
+   - PDF Document: `Docs/Project 3 - Automated Test Scripts - Devangbhai & Meet.pdf`
    - Markdown Source: `Docs/AUTOMATED_TEST_SCRIPTS.md`
-   - Implementation: `automation_selenium/` and `automation_robot/`
+   - Framework Code: `automation_selenium/` and `automation_robot/`
 
-2. **Deliverable 2: Defects and Discrepancies Report**
+3. **Deliverable 2: Defects and Discrepancies Report**
    - Word Document: `Docs/Project 3 - Defects and Discrepancies Report - Devangbhai & Meet.docx`
+   - PDF Document: `Docs/Project 3 - Defects and Discrepancies Report - Devangbhai & Meet.pdf`
    - Markdown Source: `Docs/DISCREPANCIES_REPORT.md`
 
-3. **Deliverable 3: Final Automation Test Report**
+4. **Deliverable 3: Final Automation Test Report**
    - Word Document: `Docs/Project 3 - Final Automation Test Report - Devangbhai & Meet.docx`
+   - PDF Document: `Docs/Project 3 - Final Automation Test Report - Devangbhai & Meet.pdf`
    - Markdown Source: `Docs/FINAL_AUTOMATION_TEST_REPORT.md`
 
-4. **User & Tester Manual:**
+5. **User & Tester Manual:**
    - Markdown Manual: `USER_MANUAL.md`
 
-5. **Visual Test Reports:**
+6. **Visual Interactive Reports:**
    - Selenium Pytest Report: `reports/selenium_test_report.html`
    - Robot Framework Report: `reports/robot_logs/report.html`
 
@@ -49,7 +57,7 @@ This repository contains the complete automated regression testing framework for
 
 ---
 
-## 3. Quick Start: How to Run the Tests
+## 3. Quick Start: How to Run the Live Demo
 
 ### Step 1: Activate the Virtual Environment
 Open your terminal in this directory (`Assignment3`):
@@ -67,9 +75,9 @@ Open your terminal in this directory (`Assignment3`):
 
 ---
 
-### Step 2: Run Test Commands
+### Step 2: Live Demo Command Execution
 
-#### A. Watch the Browser Open & Click on Screen (Visual Headed Mode):
+#### A. Watch the Browser Open & Click on Screen (Mandatory Live Demo):
 ```powershell
 python -m pytest automation_selenium/tests/ --headed -v
 ```
@@ -79,51 +87,29 @@ python -m pytest automation_selenium/tests/ --headed -v
 python run_tests.py --suite all
 ```
 
-#### C. Run a Specific Test Category:
-```powershell
-# Authentication & Logout (TC-01, TC-02, TC-14):
-python -m pytest automation_selenium/tests/test_authentication.py --headed -v
-
-# Catalog Display & Sorting (TC-03, TC-04, TC-05):
-python -m pytest automation_selenium/tests/test_inventory.py --headed -v
-
-# Shopping Cart (TC-06, TC-07, TC-08):
-python -m pytest automation_selenium/tests/test_cart.py --headed -v
-
-# Checkout & Tax Calculations (TC-09 to TC-13):
-python -m pytest automation_selenium/tests/test_checkout.py --headed -v
-
-# Full End-to-End Shopping Journey (E2E):
-python -m pytest automation_selenium/tests/test_e2e_workflow.py --headed -v
-```
-
-#### D. Run the Robot Framework Test Suite:
-```powershell
-python -m robot --outputdir reports/robot_logs automation_robot/tests/saucedemo_suite.robot
-```
+#### C. Inspect Interactive Visual HTML Reports:
+Open `reports/selenium_test_report.html` or `reports/robot_logs/report.html` in Chrome.
 
 ---
 
 ## 4. Architecture & Page Object Model (POM) Structure
 
-The framework strictly follows the Page Object Model design pattern, decoupling element locators and UI interaction logic from test assertions.
-
 ```
 Assignment3/
-├── Docs/                                       # Project documentation & requirements
+├── Docs/                                       # Project documentation, deliverables, PPTX & PDFs
+│   ├── Project 3 - Final Presentation - Devangbhai & Meet.pptx <-- 14 SLIDE PRESENTATION
+│   ├── PRESENTATION_SLIDES.md                  <-- Presentation Source & Speaker Notes
 │   ├── Project 3 - Automated Test Scripts - Devangbhai & Meet.docx  <-- DELIVERABLE 1 (Word)
-│   ├── AUTOMATED_TEST_SCRIPTS.md               <-- DELIVERABLE 1 (Markdown source)
+│   ├── Project 3 - Automated Test Scripts - Devangbhai & Meet.pdf   <-- DELIVERABLE 1 (PDF)
+│   ├── AUTOMATED_TEST_SCRIPTS.md               <-- DELIVERABLE 1 (Markdown)
 │   ├── Project 3 - Defects and Discrepancies Report - Devangbhai & Meet.docx <-- DELIVERABLE 2 (Word)
-│   ├── DISCREPANCIES_REPORT.md                 <-- DELIVERABLE 2 (Markdown source)
+│   ├── Project 3 - Defects and Discrepancies Report - Devangbhai & Meet.pdf  <-- DELIVERABLE 2 (PDF)
+│   ├── DISCREPANCIES_REPORT.md                 <-- DELIVERABLE 2 (Markdown)
 │   ├── Project 3 - Final Automation Test Report - Devangbhai & Meet.docx  <-- DELIVERABLE 3 (Word)
-│   ├── FINAL_AUTOMATION_TEST_REPORT.md         <-- DELIVERABLE 3 (Markdown source)
-│   ├── Assignment III.docx                     <-- Course Assignment Instructions
-│   ├── Project 1 - QAQT Devangbhai & Meet.docx <-- Phase 1 Proposal
-│   ├── Project 2 - Test Cases - Devangbhai & Meet.docx <-- Phase 2 Manual Test Cases
-│   ├── Project 2 - DefectsReport - Devangbhai & Meet.docx <-- Phase 2 Defect Report
-│   └── Project 2 - Final Test Report - Devangbhai & Meet.docx <-- Phase 2 Final Report
+│   ├── Project 3 - Final Automation Test Report - Devangbhai & Meet.pdf   <-- DELIVERABLE 3 (PDF)
+│   └── FINAL_AUTOMATION_TEST_REPORT.md         <-- DELIVERABLE 3 (Markdown)
 │
-├── automation_selenium/                        # Selenium WebDriver Framework (Python + Pytest)
+├── automation_selenium/                        # DELIVERABLE 1: Selenium WebDriver POM Framework
 │   ├── config/
 │   │   └── config.py                           # App URLs, user credentials, timeouts, paths
 │   ├── pages/                                  # Page Object Model (POM) Page Classes
@@ -167,43 +153,17 @@ Assignment3/
 
 ---
 
-## 5. Test Traceability Matrix (TC-01 through TC-14)
+## 5. Re-generating Presentation & Reports with Python
 
-| Test ID | FR ID | Feature Area | Automated Test Method | Automated Verification |
-| :--- | :--- | :--- | :--- | :--- |
-| **TC-01** | FR-01 | Authentication | `test_tc01_successful_login` | Valid login redirects to `/inventory.html`, catalog loads 6 products |
-| **TC-02** | FR-02 | Authentication | `test_tc02_login_error_validation` | Error banner verified for invalid, locked, and blank credentials |
-| **TC-03** | FR-03 | Inventory Display | `test_tc03_inventory_display` | Exactly 6 items verified with title, image, price, and descriptions |
-| **TC-04** | FR-04 | Sorting | `test_tc04_product_sorting` | Validates all 4 sort options: `A-Z`, `Z-A`, `Low-High`, `High-Low` |
-| **TC-05** | FR-05 | Product Details | `test_tc05_product_details_view` | Item page displays title, $29.99 price, image, and back button |
-| **TC-06** | FR-06 | Shopping Cart | `test_tc06_add_to_cart` | Adding items from catalog & details increments cart badge dynamically |
-| **TC-07** | FR-07 | Shopping Cart | `test_tc07_remove_from_cart` | Removing items decrements badge count and updates button state |
-| **TC-08** | FR-08 | Cart Review | `test_tc08_cart_review` | Navigating to `/cart.html` verifies item list, pricing, and continue shopping |
-| **TC-09** | FR-09 | Checkout Info | `test_tc09_checkout_empty_fields_validation` | Submitting empty form blocks checkout with "First Name is required" |
-| **TC-10** | FR-10 | Input Validation | `test_tc10_checkout_input_validation` | Missing last name & postal code triggers specific error messages |
-| **TC-11** | FR-11 | Order Overview | `test_tc11_order_overview_calculations` | Verifies Subtotal ($45.98) + Tax ($3.68) == Total ($49.66) strictly |
-| **TC-12** | FR-12 | Order Complete | `test_tc12_finish_order_confirmation` | Order confirmed with "Thank you for your order!" and pony express badge |
-| **TC-13** | FR-13 | Checkout Cancel | `test_tc13_cancel_checkout_redirection` | Cancelling from Step 1 returns to Cart; Step 2 returns to Inventory |
-| **TC-14** | FR-14 | User Logout | `test_tc14_secure_logout` | Sidebar logout ends session and blocks direct inventory URL access |
-| **E2E** | Full Flow | E-Commerce Journey | `test_complete_e2e_shopping_workflow` | Login -> Sort -> Add 3 Items -> Cart -> Checkout -> Overview -> Finish -> Logout |
+If you make edits to `PRESENTATION_SLIDES.md` or any markdown report in `Docs/` and want to update the `.pptx`, `.docx`, and `.pdf` files, run:
 
----
-
-## 6. Re-generating Word Documents (.docx) with `pypandoc`
-
-If you make edits to the Markdown files in `Docs/` and want to update the `.docx` documents, run:
 ```powershell
+# Update PPTX presentation:
+python generate_presentation_pptx.py
+
+# Update DOCX documents:
 python -c "import pypandoc; pypandoc.convert_file('Docs/AUTOMATED_TEST_SCRIPTS.md', 'docx', outputfile='Docs/Project 3 - Automated Test Scripts - Devangbhai & Meet.docx'); pypandoc.convert_file('Docs/DISCREPANCIES_REPORT.md', 'docx', outputfile='Docs/Project 3 - Defects and Discrepancies Report - Devangbhai & Meet.docx'); pypandoc.convert_file('Docs/FINAL_AUTOMATION_TEST_REPORT.md', 'docx', outputfile='Docs/Project 3 - Final Automation Test Report - Devangbhai & Meet.docx'); print('All Word deliverables updated successfully!')"
 ```
-
----
-
-## 7. Technical References
-1. **Selenium Documentation:** https://www.selenium.dev/documentation/
-2. **Pytest Framework Documentation:** https://docs.pytest.org/
-3. **Robot Framework User Guide:** https://robotframework.org/
-4. **Target Test Site:** https://www.saucedemo.com/
-5. **Project Source Repository:** https://github.com/MeetAhalpara/QA-Test-Automation
 
 ---
 *Created for Devangbhai Pandit & Meet Ahalpara | CST8513 Quality Assurance and Testing | Algonquin College*
